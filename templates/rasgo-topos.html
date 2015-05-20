@@ -1,0 +1,12 @@
+
+
+
+<table style="padding: 10px 50px 0px 0px;border:solid 1px; width: 300px">
+    <tr ng-repeat="n in nombreRasgo">
+        <td><div>{{nombreRasgo[$index]}}</div></td>
+        <td><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index"
+                 ng-click="asignarValor(n,($index))"></div></td>
+    </tr>
+
+</table>
+

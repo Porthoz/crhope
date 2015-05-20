@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style/style.css"/>
+    <script src="../librerias/angular.min.js"></script>
+    <script src="controllers/pjController.js"></script>
+    <script src="directives/rasgoTopos.js"></script>
+    <script src="../librerias/xeditable.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link href="style/xeditable.css" rel="stylesheet">
+
+</head>
+<body ng-app="appFicha">
+<div ng-controller="pjController as ctrl">
+
+
+<!--<p><input type="number" max="13" min="3" ng-model="ctrl.infoPj.max" ng-change=""></p>-->
+<!--{{ctrl.infoPj.max}}-->
+<!--<br>-->
+<p>Generación: <input ng-model="ctrl.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>
+
+    <table>
+        <tr>
+            <td>
+                <topos rasgos="Fuerza,Destreza,Resistencia"  max="ctrl.max"></topos>
+            </td>
+            <td>
+                <topos rasgos="Carisma,Manipulación,Apariencia"  max="ctrl.max"></topos>
+            </td>
+            <td>
+                <topos rasgos="Percepción,Inteligencia,Astucia"  max="ctrl.max"></topos>
+            </td>
+        </tr>
+        <th>Habilidades</th>
+        <tr>
+
+            <td>
+                <topos rasgos="Actuar,Alerta,Atletismo,Callejeo,Esquivar,Empatía,Intimidación,Liderazgo,Pelea,Subtergio"  max="ctrl.max"></topos>
+            </td>
+            <td>
+                <topos rasgos="Armas C. C.,Armas de Fuego,Conducir,Etiqueta,Música,Reparaciones,Serguridad,Sigilo,Supervivencia,Trato con animales"  max="ctrl.max"></topos>
+            </td>
+            <td>
+                <topos rasgos="Burocracioa,Ciencias,Finazas,Informática,Investigación,Leyes,Linguística,Medicina,Ocultismo,Política"  max="ctrl.max"></topos>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
