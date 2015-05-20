@@ -20,33 +20,29 @@
 <!--{{ctrl.infoPj.max}}-->
 <!--<br>-->
 <p>Generación: <input ng-model="ctrl.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>
+<div class="hojaPersonaje">
+    <div class="linea"><h2>Atributos</h2></div>
+    <div>
+        <div class="bloque"><div><h3>Físicos</h3></div><topos rasgos="Fuerza,Destreza,Resistencia"  max="ctrl.max"></topos></div>
+        <div class="bloque"><div><h3>Sociales</h3></div><topos rasgos="Carisma,Manipulación,Apariencia"  max="ctrl.max"></topos></div>
+        <div class="bloque"><div><h3>Mentales</h3></div><topos rasgos="Percepción,Inteligencia,Astucia"  max="ctrl.max"></topos></div>
+    </div>
+    <div class="linea"><h2>Habilidades</h2></div>
+    <div class="linea">
+        <div class="bloque"><div><h3>Talentos</h3></div><topos rasgos="Actuar,Alerta,Atletismo,Callejeo,Esquivar,Empatía,Intimidación,Liderazgo,Pelea,Subtergio"  max="ctrl.max"></topos></div>
+        <div class="bloque"><div><h3>Técnicas</h3></div><topos rasgos="Armas C. C.,Armas de Fuego,Conducir,Etiqueta,Música,Reparaciones,Serguridad,Sigilo,Supervivencia,Trato con animales"  max="ctrl.max"></topos></div>
+        <div class="bloque"><div><h3>Conocimientos</h3></div><topos rasgos="Burocracioa,Ciencias,Finazas,Informática,Investigación,Leyes,Linguística,Medicina,Ocultismo,Política"  max="ctrl.max"></topos></div>
+    </div>
+    <div class="linea"><h2>Ventajas</h2></div>
+    <div>
+        <div class="bloque"><div><h3>Disciplinas</h3></div><topos rasgos="Auspex,Celeridad,Presencia"  max="ctrl.max"></topos></div>
+        <div class="bloque"><div><h3>Trasfondos</h3></div><topos rasgos="Generación,Recursos"  max="ctrl.max"></topos></div>
+        <div class="bloque"><div><h3>Virtudes</h3></div><topos rasgos="Autocontrol,Conciencia,Coraje"  max="ctrl.max"></topos></div>
+    </div>
 
-    <table>
-        <tr>
-            <td>
-                <topos rasgos="Fuerza,Destreza,Resistencia"  max="ctrl.max"></topos>
-            </td>
-            <td>
-                <topos rasgos="Carisma,Manipulación,Apariencia"  max="ctrl.max"></topos>
-            </td>
-            <td>
-                <topos rasgos="Percepción,Inteligencia,Astucia"  max="ctrl.max"></topos>
-            </td>
-        </tr>
-        <th>Habilidades</th>
-        <tr>
+</div>
 
-            <td>
-                <topos rasgos="Actuar,Alerta,Atletismo,Callejeo,Esquivar,Empatía,Intimidación,Liderazgo,Pelea,Subtergio"  max="ctrl.max"></topos>
-            </td>
-            <td>
-                <topos rasgos="Armas C. C.,Armas de Fuego,Conducir,Etiqueta,Música,Reparaciones,Serguridad,Sigilo,Supervivencia,Trato con animales"  max="ctrl.max"></topos>
-            </td>
-            <td>
-                <topos rasgos="Burocracioa,Ciencias,Finazas,Informática,Investigación,Leyes,Linguística,Medicina,Ocultismo,Política"  max="ctrl.max"></topos>
-            </td>
-        </tr>
-    </table>
+
 
 
 

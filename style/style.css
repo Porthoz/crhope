@@ -19,11 +19,29 @@
     float: left;
     margin-right:2px;
 }
+
 .linea {
     clear:both;
-    padding: 10px;
+
 }
 
-.etiqueta {
+.bloque {
     float:left;
+    /*min-width: 350px;*/
+    border: solid 2px;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 5px;
+    height: 100%;
+}
+
+.hojaPersonaje {
+    /*background-color: cornflowerblue;*/
+}
+svg {
+    /*width:100%;*/
+    /*height: auto;*/
+    /*margin-right: -50px;*/
+    /*padding: 0;*/
+
 }

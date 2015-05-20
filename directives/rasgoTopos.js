@@ -32,7 +32,7 @@
                 //inicializo la matriz que represanta los puntos
                 vm.matrizDePuntos =[];
                 for (var v=0;v<vm.nombreRasgo.length;v++){
-                    vm.matrizDePuntos[v] = [marked];
+                    vm.matrizDePuntos[v] = [unmarked];
 
                     for (var i=1;i<vm.max;i++){
                         vm.matrizDePuntos[v].push(unmarked);
@@ -44,6 +44,7 @@
                     alert(msg);
                 };
 
+                //Método para asignar valor a la matriz
                 vm.asignarValor =function (rasgo,valor){
                     var r = vm.nombreRasgo.indexOf(rasgo);
                     for (var i=0;i<vm.matrizDePuntos[r].length;i++){

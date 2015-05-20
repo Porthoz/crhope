@@ -1,8 +1,8 @@
-<table  style="border: solid 1px;">
+<table>
 
     <tr ng-repeat="i in nombreRasgo track by $index">
-        <td><span editable-text="nombreRasgo[$index]">{{nombreRasgo[$index]||'empty'}}</span></td>
-        <td><svg height="23" width="150">
+        <td style="min-width: 150px"><span  editable-text="nombreRasgo[$index]">{{nombreRasgo[$index]||'vacio'}}</span></td>
+        <td><svg  height="23" width="150">
             <circle ng-repeat="n in matrizDePuntos[$index] track by $index" r="5"
                     ng-attr-cx="{{8+$index*14}}" cy="15" stroke="black" stroke-width="3" fill="{{n}}"
                     ng-click="asignarValor(i,($index))" ></circle>
