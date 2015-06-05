@@ -5,51 +5,56 @@
     <title></title>
     <link rel="stylesheet" href="style/style.css"/>
     <script src="bower_components/angular/angular.js"></script>
+
     <script src="controllers/pjController.js"></script>
+    <script src="services/fichaProvider.js"></script>
     <script src="directives/rasgoTopos.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
     <link href="style/xeditable.css" rel="stylesheet">
 
 </head>
-<body ng-app="appFicha">
-<div ng-controller="pjController as ctrl">
 
-
-<!--<p><input type="number" max="13" min="3" ng-model="ctrl.infoPj.max" ng-change=""></p>-->
-<!--{{ctrl.infoPj.max}}-->
-<!--<br>-->
-<p>Generación: <input ng-model="ctrl.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>
-<div class="hojaPersonaje">
-    <div class="linea"><h2>Atributos</h2></div>
-    <div>
-        <div class="bloque"><div><h3>Físicos</h3></div><topos rasgos="Fuerza,Destreza,Resistencia"  max="ctrl.max"></topos></div>
-        <div class="bloque"><div><h3>Sociales</h3></div><topos rasgos="Carisma,Manipulación,Apariencia"  max="ctrl.max"></topos></div>
-        <div class="bloque"><div><h3>Mentales</h3></div><topos rasgos="Percepción,Inteligencia,Astucia"  max="ctrl.max"></topos></div>
-    </div>
-    <div class="linea"><h2>Habilidades</h2></div>
-    <div class="linea">
-        <div class="bloque"><div><h3>Talentos</h3></div><topos rasgos="Actuar,Alerta,Atletismo,Callejeo,Esquivar,Empatía,Intimidación,Liderazgo,Pelea,Subtergio"  max="ctrl.max"></topos></div>
-        <div class="bloque"><div><h3>Técnicas</h3></div><topos rasgos="Armas C. C.,Armas de Fuego,Conducir,Etiqueta,Música,Reparaciones,Serguridad,Sigilo,Supervivencia,Trato con animales"  max="ctrl.max"></topos></div>
-        <div class="bloque"><div><h3>Conocimientos</h3></div><topos rasgos="Burocracioa,Ciencias,Finazas,Informática,Investigación,Leyes,Linguística,Medicina,Ocultismo,Política"  max="ctrl.max"></topos></div>
-    </div>
-    <div class="linea"><h2>Ventajas</h2></div>
-    <div>
-        <div class="bloque"><div><h3>Disciplinas</h3></div><topos rasgos="Auspex,Celeridad,Presencia"  max="ctrl.max"></topos></div>
-        <div class="bloque"><div><h3>Trasfondos</h3></div><topos rasgos="Generación,Recursos"  max="ctrl.max"></topos></div>
-        <div class="bloque"><div><h3>Virtudes</h3></div><topos rasgos="Autocontrol,Conciencia,Coraje"  max="ctrl.max"></topos></div>
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
-</div>
+<body ng-app="crhope">
 
 </body>
+<div ng-controller="pjController as ctrl">
+    <ul>
+        <li ng-repeat="rasgos in ctrl.datosPj.atributosFisicos"> {{rasgos}}</li>
+    </ul>
+    <input type="text" ng-model="ctrl.datosPj.atributosFisicos[1].Nombre"/>
+
+
+
+    <p>Generación: <input ng-model="ctrl.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>
+    <div class="hojaPersonaje">
+        <div class="linea"><h2>Atributos</h2></div>
+        <div>
+            <div class="bloque"><div><h3>Físicos</h3></div><topos rasgos="Fuerza,Destreza,Resistencia"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Sociales</h3></div><topos rasgos="Carisma,Manipulación,Apariencia"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Mentales</h3></div><topos rasgos="Percepción,Inteligencia,Astucia"  max="ctrl.max"></topos></div>
+        </div>
+        <div class="linea"><h2>Habilidades</h2></div>
+        <div class="linea">
+            <div class="bloque"><div><h3>Talentos</h3></div><topos rasgos="Actuar,Alerta,Atletismo,Callejeo,Esquivar,Empatía,Intimidación,Liderazgo,Pelea,Subtergio"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Técnicas</h3></div><topos rasgos="Armas C. C.,Armas de Fuego,Conducir,Etiqueta,Música,Reparaciones,Serguridad,Sigilo,Supervivencia,Trato con animales"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Conocimientos</h3></div><topos rasgos="Burocracioa,Ciencias,Finazas,Informática,Investigación,Leyes,Linguística,Medicina,Ocultismo,Política"  max="ctrl.max"></topos></div>
+        </div>
+        <div class="linea"><h2>Ventajas</h2></div>
+        <div>
+            <div class="bloque"><div><h3>Disciplinas</h3></div><topos rasgos="Auspex,Celeridad,Presencia"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Trasfondos</h3></div><topos rasgos="Generación,Recursos"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Virtudes</h3></div><topos rasgos="Autocontrol,Conciencia,Coraje"  max="ctrl.max"></topos></div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
 </html>

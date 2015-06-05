@@ -1,8 +1,8 @@
 .desmarcado {
 
     border-radius: 50%;
-    width: 6px;
-    height: 6px;
+    width: 12px;
+    height: 12px;
     background-color: whitesmoke;
     border:solid black 3px;
     float: left;
@@ -12,8 +12,8 @@
 .marcado {
 
     border-radius: 50%;
-    width: 6px;
-    height: 6px;
+    width: 12px;
+    height: 12px;
     background-color: black;
     border:solid black 3px;
     float: left;
@@ -27,7 +27,7 @@
 
 .bloque {
     float:left;
-    /*min-width: 350px;*/
+    min-width: 250px;
     border: solid 2px;
     border-radius: 25px;
     padding: 10px;

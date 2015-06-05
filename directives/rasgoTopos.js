@@ -5,13 +5,14 @@
 
     'use strict'; //nos ponemos serios
 
-    angular.module('appFicha')
+    angular.module('crhope')
         .directive('topos',rasgoTopos);
 
 
     function rasgoTopos() {
         return {
             restrict: 'E',
+            replace:true,
             scope:{
                 rasgos:'@',
                 max:'='
@@ -20,8 +21,8 @@
 
             controller:function ($scope){
 
-                var marked ='black';
-                var unmarked = 'white';
+                var marked ='marcado';
+                var unmarked = 'desmarcado';
                 var vm =$scope; // Todo mas clarito
 
 
@@ -66,6 +67,15 @@
 
                     function ajustarVector (v){
 
+                        if (vm.max!==null){
+                            for (var i=0;vm.matrizDePuntos[v].length<vm.max;i++){
+                                anhadirPunto(v);
+                            }
+                            for (var m=0;vm.matrizDePuntos[v].length>vm.max;m++){
+                                quitarPunto(v);
+                            }
+                        }
+
                         function anhadirPunto(n){
                             vm.matrizDePuntos[n].push(unmarked);
                         }
@@ -73,15 +83,6 @@
                         function quitarPunto(n){
                             if (vm.matrizDePuntos[n].length>1){
                                 vm.matrizDePuntos[n].pop();
-                            }
-                        }
-
-                        if (vm.max!==null){
-                            for (var i=0;vm.matrizDePuntos[v].length<vm.max;i++){
-                                anhadirPunto(v);
-                            }
-                            for (var m=0;vm.matrizDePuntos[v].length>vm.max;m++){
-                                quitarPunto(v);
                             }
                         }
                     }
@@ -94,9 +95,11 @@
             $scope.$watch(function(){return vm.max;},vm.ajustarMatriz);
 
             },
-            templateUrl:'templates/tablaPuntosSvg.html'
+            templateUrl:'templates/rasgo-topos.html'
 
         };
+
+
 
     }
 
