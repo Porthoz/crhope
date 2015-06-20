@@ -24,32 +24,7 @@
             vm.cambioGeneracion();
         });
 
-        //function selGeneracion(){
-        //    switch (vm.generacion) {
-        //        case(7):
-        //            vm.max=6;
-        //            break;
-        //        case(6):
-        //            vm.max=7;
-        //            break;
-        //        case(5):
-        //            vm.max=8;
-        //            break;
-        //        case(4):
-        //            vm.max=9;
-        //            break;
-        //        case(3):
-        //            vm.max=10;
-        //            break;
-        //        case(null):
-        //            break;
-        //        default:
-        //            vm.max=5;
-        //    }
-        //
-        //}
-
-
+        //Lógica de relación generacion / max atributo
         this.cambioGeneracion = function() {
             switch (this.generacion) {
                 case(7):
@@ -71,15 +46,9 @@
                     break;
                 default:
                     this.max=5;
-
-
             }
 
         };
-
-
-
-
 
         //this.guardar= function(){
         //    $http.post('fichas/fichas.json',this.datosPj).then(function(data){});
