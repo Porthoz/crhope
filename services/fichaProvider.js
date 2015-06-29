@@ -24,19 +24,22 @@
                 "atributosFisicos":
                 {
                     "Nombre":["Fuerza","Destreza","Resistencia"],
-                    "Valor":[2,3,4]
+                    "Valor":[2,3,4],
+                    "maximo":5
                 },
 
                 "atributosSociales":
                 {
                     "Nombre":["Carisma","Manipulación","Apariencia"],
-                    "Valor":[2,2,0]
+                    "Valor":[2,2,0],
+                    "maximo":5
 
                 },
                 "atributosMentales":
                 {
                     "Nombre":["Percepción","Inteligencia","Astucia"],
-                    "Valor":[3,2,3]
+                    "Valor":[3,2,3],
+                    "maximo":5
                 }
             }
         };

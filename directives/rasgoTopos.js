@@ -27,12 +27,12 @@
                 vm.matrizDePuntos =[];
                 //inicializo los nombres de los ragos separandolos en un vector
 
-                //vm.rasgos=ficha.getFicha()[vm.nombreRasgo];
-                //console.log(vm.rasgos);
+                //inicializo la matriz que represanta los puntos
 
-                    //inicializo la matriz que represanta los puntos
 
-                for (var v=0;v<vm.rasgos.Nombre.length;v++){
+
+                vm.actualizar = function(){
+                    for (var v=0;v<vm.rasgos.Nombre.length;v++){
                         vm.matrizDePuntos[v] = [];
                         for (var i=0;i<vm.max;i++){
                             if (vm.rasgos.Valor[v]>i){
@@ -43,13 +43,8 @@
 
                         }
                     }
+                };
                     //console.log(vm.matrizDePuntos);
-
-
-
-
-
-
                 // Que estoy pulsando??
                 vm.alerta = function (msg){
                     alert(msg);
@@ -108,7 +103,8 @@
 
 
             //watches sobre max para actualizar la matriz de vectores
-            $scope.$watch(function(){return vm.max;},vm.ajustarMatriz);
+                $scope.$watch(function(){return vm.max;},vm.ajustarMatriz);
+                $scope.$watch(function(){return vm.rasgos;},vm.actualizar);
 
             },
             templateUrl:'templates/rasgo-topos.html'

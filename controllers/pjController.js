@@ -4,7 +4,6 @@
 
 (function (angular){
 
-
     angular.module('crhope',["xeditable"])
 
         .controller ('pjController', ['ficha',pjController])
@@ -16,15 +15,48 @@
  //Funcion pjController
     function pjController(ficha){
         var vm = this;
-        vm.datosPj = ficha.getFicha();
+        vm.datosPj = {
+            "generacion":9,
+            "atributosFisicos":
+            {
+                "Nombre":["Fuerza","Destreza","Resistencia"],
+                "Valor":[0,0,0],
+                "maximo":5
+            },
+
+            "atributosSociales":
+            {
+                "Nombre":["Carisma","Manipulación","Apariencia"],
+                "Valor":[0,0,0],
+                "maximo":5
+
+            },
+            "atributosMentales":
+            {
+                "Nombre":["Percepción","Inteligencia","Astucia"],
+                "Valor":[0,0,0],
+                "maximo":5
+            }
+        };
         vm.generacion=vm.datosPj.generacion;
         vm.max=5;
+
         //Lógica de relación generacion / max atributo
         //ficha.getFicha().then(function (data){
         //    vm.datosPj = data;
         //    vm.generacion =data.generacion;
         //});
 
+        vm.cargarDatos = function() {
+
+            vm.datosPj = ficha.getFicha();
+            vm.generacion=vm.datosPj.generacion;
+            console.log('He cargado los datos');
+        };
+
+        vm.reset = function() {
+
+        };
 
         this.cambioGeneracion = function() {
             switch (this.generacion) {
@@ -52,10 +84,6 @@
         };
 
         this.cambioGeneracion();
-
-        //this.guardar= function(){
-        //    $http.post('fichas/fichas.json',this.datosPj).then(function(data){});
-        //};
 
     }
 
