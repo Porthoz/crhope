@@ -22,7 +22,7 @@
     <ul>
         <li ng-repeat="rasgos in ctrl.datosPj.atributosFisicos"> {{rasgos}}</li>
     </ul>
-    <input type="text" ng-model="ctrl.datosPj.atributosFisicos[1].Nombre"/>
+    <input type="text" ng-model="ctrl.datosPj.atributosFisicos.Nombre[0]"/>
 
 
 
@@ -30,22 +30,22 @@
     <div class="hojaPersonaje">
         <div class="linea"><h2>Atributos</h2></div>
         <div>
-            <div class="bloque"><div><h3>Físicos</h3></div><topos rasgos="Fuerza,Destreza,Resistencia"  max="ctrl.max"></topos></div>
-            <div class="bloque"><div><h3>Sociales</h3></div><topos rasgos="Carisma,Manipulación,Apariencia"  max="ctrl.max"></topos></div>
-            <div class="bloque"><div><h3>Mentales</h3></div><topos rasgos="Percepción,Inteligencia,Astucia"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Físicos</h3></div><topos rasgo="ctrl.datosPj.atributosFisicos"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Sociales</h3></div><topos rasgo="ctrl.datosPj.atributosSociales"  max="ctrl.max"></topos></div>
+            <div class="bloque"><div><h3>Mentales</h3></div><topos rasgo="ctrl.datosPj.atributosMentales"  max="ctrl.max"></topos></div>
         </div>
         <div class="linea"><h2>Habilidades</h2></div>
-        <div class="linea">
-            <div class="bloque"><div><h3>Talentos</h3></div><topos rasgos="Actuar,Alerta,Atletismo,Callejeo,Esquivar,Empatía,Intimidación,Liderazgo,Pelea,Subtergio"  max="ctrl.max"></topos></div>
-            <div class="bloque"><div><h3>Técnicas</h3></div><topos rasgos="Armas C. C.,Armas de Fuego,Conducir,Etiqueta,Música,Reparaciones,Serguridad,Sigilo,Supervivencia,Trato con animales"  max="ctrl.max"></topos></div>
-            <div class="bloque"><div><h3>Conocimientos</h3></div><topos rasgos="Burocracioa,Ciencias,Finazas,Informática,Investigación,Leyes,Linguística,Medicina,Ocultismo,Política"  max="ctrl.max"></topos></div>
-        </div>
-        <div class="linea"><h2>Ventajas</h2></div>
-        <div>
-            <div class="bloque"><div><h3>Disciplinas</h3></div><topos rasgos="Auspex,Celeridad,Presencia"  max="ctrl.max"></topos></div>
-            <div class="bloque"><div><h3>Trasfondos</h3></div><topos rasgos="Generación,Recursos"  max="ctrl.max"></topos></div>
-            <div class="bloque"><div><h3>Virtudes</h3></div><topos rasgos="Autocontrol,Conciencia,Coraje"  max="ctrl.max"></topos></div>
-        </div>
+        <!--<div class="linea">-->
+            <!--<div class="bloque"><div><h3>Talentos</h3></div><topos rasgos="Actuar,Alerta,Atletismo,Callejeo,Esquivar,Empatía,Intimidación,Liderazgo,Pelea,Subtergio"  max="ctrl.max"></topos></div>-->
+            <!--<div class="bloque"><div><h3>Técnicas</h3></div><topos rasgos="Armas C. C.,Armas de Fuego,Conducir,Etiqueta,Música,Reparaciones,Serguridad,Sigilo,Supervivencia,Trato con animales"  max="ctrl.max"></topos></div>-->
+            <!--<div class="bloque"><div><h3>Conocimientos</h3></div><topos rasgos="Burocracioa,Ciencias,Finazas,Informática,Investigación,Leyes,Linguística,Medicina,Ocultismo,Política"  max="ctrl.max"></topos></div>-->
+        <!--</div>-->
+        <!--<div class="linea"><h2>Ventajas</h2></div>-->
+        <!--<div>-->
+            <!--<div class="bloque"><div><h3>Disciplinas</h3></div><topos rasgos="Auspex,Celeridad,Presencia"  max="ctrl.max"></topos></div>-->
+            <!--<div class="bloque"><div><h3>Trasfondos</h3></div><topos rasgos="Generación,Recursos"  max="ctrl.max"></topos></div>-->
+            <!--<div class="bloque"><div><h3>Virtudes</h3></div><topos rasgos="Autocontrol,Conciencia,Coraje"  max="ctrl.max"></topos></div>-->
+        <!--</div>-->
 
     </div>
 
