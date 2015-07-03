@@ -21,27 +21,31 @@
 
             return {
                 "generacion":9,
-                "atributosFisicos":
-                {
-                    "Nombre":["Fuerza","Destreza","Resistencia"],
-                    "Valor":[2,3,4],
-                    "maximo":5
-                },
+                "modulos":[
+                    {
+                        "nombre":"Físicos",
+                        "rasgo":["Fuerza","Destreza","Resistencia"],
+                        "valor":[2,3,4],
+                        "maximo":5,
+                        "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Físicos",
+                        "rasgo":["Carisma","Manipulación","Apariencia"],
+                        "valor":[2,5,0],
+                        "maximo":5
 
-                "atributosSociales":
-                {
-                    "Nombre":["Carisma","Manipulación","Apariencia"],
-                    "Valor":[2,2,0],
-                    "maximo":5
+                    },
+                    {
+                        "nombre":"Físicos",
+                        "rasgo":["Percepción","Inteligencia","Astucia"],
+                        "valor":[3,2,3],
+                        "maximo":5
+                    }
+                ]
 
-                },
-                "atributosMentales":
-                {
-                    "Nombre":["Percepción","Inteligencia","Astucia"],
-                    "Valor":[3,2,3],
-                    "maximo":5
-                }
             }
+
         };
         return fichaFactory;
     }

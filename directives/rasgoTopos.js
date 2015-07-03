@@ -14,8 +14,8 @@
             restrict: 'E',
             replace:true,
             scope:{
-                rasgos:'=rasgo',
-                max:'='
+                modulo:'='
+                //max:'='
             },
 
 
@@ -32,10 +32,10 @@
 
 
                 vm.actualizar = function(){
-                    for (var v=0;v<vm.rasgos.Nombre.length;v++){
+                    for (var v=0;v<vm.modulo.rasgo.length;v++){
                         vm.matrizDePuntos[v] = [];
-                        for (var i=0;i<vm.max;i++){
-                            if (vm.rasgos.Valor[v]>i){
+                        for (var i=0;i<vm.modulo.maximo;i++){
+                            if (vm.modulo.valor[v]>i){
                                 vm.matrizDePuntos[v].push(marked)
                             }else{
                                 vm.matrizDePuntos[v].push(unmarked);
@@ -52,12 +52,12 @@
 
                 //Método para asignar valor a la matriz
                 vm.asignarValor =function (rasgo,valor){
-                    if (valor===(vm.rasgos.Valor[rasgo]-1)){
+                    if (valor===(vm.modulo.valor[rasgo]-1)){
                         //var temp=valor+1;
                         valor=-1;
                     }
                     var r = rasgo;
-                    vm.rasgos.Valor[rasgo]=valor+1;
+                    vm.modulo.valor[rasgo]=valor+1;
                     for (var i=0;i<vm.matrizDePuntos[r].length;i++){
                         if (i<=valor){
                             vm.matrizDePuntos[r][i]=marked;
@@ -103,8 +103,8 @@
 
 
             //watches sobre max para actualizar la matriz de vectores
-                $scope.$watch(function(){return vm.max;},vm.ajustarMatriz);
-                $scope.$watch(function(){return vm.rasgos;},vm.actualizar);
+                //$scope.$watch(function(){return vm.max;},vm.ajustarMatriz);
+                $scope.$watch(function(){return vm.modulo;},vm.actualizar, vm.ajustarMatriz);
 
             },
             templateUrl:'templates/rasgo-topos.html'

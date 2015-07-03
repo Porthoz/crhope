@@ -2,8 +2,8 @@
 
 
 <table >
-    <tr ng-repeat="n in rasgos.Nombre">
-        <td><div><span editable-text="rasgos.Nombre[$index]">{{rasgos.Nombre[$index]}}</span></div></td>
+    <tr ng-repeat="n in modulo.rasgo">
+        <td><div><span editable-text="modulo.rasgo[$index]">{{modulo.rasgo[$index]}}</span></div></td>
         <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index" ng-click="asignarValor($parent.$index,($index))" ></div></td>
     </tr>
 

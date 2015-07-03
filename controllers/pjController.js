@@ -15,29 +15,34 @@
  //Funcion pjController
     function pjController(ficha){
         var vm = this;
-        vm.datosPj = {
+        vm.fichaVampiro = {
+
             "generacion":9,
-            "atributosFisicos":
-            {
-                "Nombre":["Fuerza","Destreza","Resistencia"],
-                "Valor":[0,0,0],
-                "maximo":5
-            },
+            "modulos":[
+                {
+                    "nombre":"Físicos",
+                    "rasgo":["Fuerza","Destreza","Resistencia"],
+                    "valor":[0,0,0],
+                    "maximo":5,
+                    "tipo":"topos"
+                },
+                {
+                    "nombre":"Físicos",
+                    "rasgo":["Carisma","Manipulación","Apariencia"],
+                    "valor":[0,0,0],
+                    "maximo":5
 
-            "atributosSociales":
-            {
-                "Nombre":["Carisma","Manipulación","Apariencia"],
-                "Valor":[0,0,0],
-                "maximo":5
+                },
+                {
+                    "nombre":"Físicos",
+                    "rasgo":["Percepción","Inteligencia","Astucia"],
+                    "valor":[0,0,0],
+                    "maximo":5
+                }
+            ]
 
-            },
-            "atributosMentales":
-            {
-                "Nombre":["Percepción","Inteligencia","Astucia"],
-                "Valor":[0,0,0],
-                "maximo":5
-            }
         };
+        vm.datosPj=vm.fichaVampiro;
         vm.generacion=vm.datosPj.generacion;
         vm.max=5;
 
@@ -55,35 +60,41 @@
         };
 
         vm.reset = function() {
+            vm.datosPj=vm.fichaVampiro;
 
         };
 
         this.cambioGeneracion = function() {
+            var ajuste = function(valor){
+                for (var i=0; i<vm.datosPj.modulos.length; i++){
+                    vm.datosPj.modulos[i].maximo=valor;
+                }
+            };
             switch (this.generacion) {
                 case(7):
-                    this.max=6;
+                    ajuste(6);
                     break;
                 case(6):
-                    this.max=7;
+                    ajuste(7);
                     break;
                 case(5):
-                    this.max=8;
+                    ajuste(8);
                     break;
                 case(4):
-                    this.max=9;
+                    ajuste(9);
                     break;
                 case(3):
-                    this.max=10;
+                    ajuste(10);
                     break;
                 case(null):
                     break;
                 default:
-                    this.max=5;
+                    ajuste(5);
             }
 
         };
 
-        this.cambioGeneracion();
+//        this.cambioGeneracion();
 
     }
 

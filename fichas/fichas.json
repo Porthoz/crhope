@@ -2,19 +2,19 @@
   "generacion":9,
   "atributosFisicos":
   {
-    "Nombre":["Fuerza","Destreza","Resistencia"],
-    "Valor":[3,3,4]
+    "rasgo":["Fuerza","Destreza","Resistencia"],
+    "valor":[3,3,4]
   },
 
   "atributosSociales":
   {
-    "Nombre":["Carisma","Manipulación","Apariencia"],
-    "Valor":[2,2,0]
+    "rasgo":["Carisma","Manipulación","Apariencia"],
+    "valor":[2,2,0]
 
   },
   "atributosMentales":
   {
-    "Nombre":["Percepción","Inteligencia","Astucia"],
-    "Valor":[3,2,3]
+    "rasgo":["Percepción","Inteligencia","Astucia"],
+    "valor":[3,2,3]
   }
 }
