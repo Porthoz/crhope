@@ -1,8 +1,8 @@
 .desmarcado {
 
     border-radius: 50%;
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     background-color: whitesmoke;
     border:solid black 3px;
     float: left;
@@ -14,8 +14,8 @@
 .marcado {
 
     border-radius: 50%;
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     background-color: black;
     border:solid black 3px;
     float: left;
@@ -37,6 +37,10 @@
     padding: 10px;
     margin: 5px;
     height: 100%;
+}
+.etiqueta{
+    /*float:left;*/
+    margin:5px 20px
 }
 
 .hojaPersonaje {

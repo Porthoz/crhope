@@ -8,40 +8,71 @@
     function ficha($http,$q){
         var fichaFactory={};
 
-        //fichaFactory.getFicha = function (){
-        //    var defferer = $q.defer();
-        //    $http.get('fichas/fichas.json').success(function (data){
-        //        //console.log(data);
-        //        defferer.resolve(data);
-        //        });
-        //    return defferer.promise;
-        //};
+        fichaFactory.getFicha = function (){
+            var defferer = $q.defer();
+            $http.get('fichas/fichas.json').success(function (data){
+                  defferer.resolve(data);
+                });
+            return defferer.promise;
+        };
 
-        fichaFactory.getFicha= function(){
+        fichaFactory.fichaVacia = function(){
 
             return {
-                "generacion":9,
+                "nombre":"",
+                "jugador":"",
+                "cronica":"",
+                "naturaleza":"",
+                "conducta":"",
+                "concepto":"",
+                "generacion":13,
+                "clan":"",
+                "refugio":"",
                 "modulos":[
                     {
                         "nombre":"Físicos",
                         "rasgo":["Fuerza","Destreza","Resistencia"],
-                        "valor":[2,3,4],
+                        "valor":[1,1,1],
                         "maximo":5,
                         "tipo":"topos"
                     },
                     {
-                        "nombre":"Físicos",
+                        "nombre":"Sociales",
                         "rasgo":["Carisma","Manipulación","Apariencia"],
-                        "valor":[2,5,0],
-                        "maximo":5
+                        "valor":[1,1,0],
+                        "maximo":5,
+                        "tipo":"topos"
 
                     },
                     {
-                        "nombre":"Físicos",
+                        "nombre":"Mentales",
                         "rasgo":["Percepción","Inteligencia","Astucia"],
-                        "valor":[3,2,3],
-                        "maximo":5
+                        "valor":[1,1,1],
+                        "maximo":5,
+                        "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Talentos",
+                        "rasgo":["Actuar","Alerta","Atletismo","Callejeo","Esquivar","Empatía","Intimidación","Liderazgo","Pelea","Subtergio"],
+                        "valor":[0,0,0,0,0,0,0,0,0,0],
+                        "maximo":5,
+                        "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Técnicas",
+                        "rasgo":["Armas C. C.","Armas de Fuego","Conducir","Etiqueta","Música","Reparaciones","Serguridad","Sigilo","Supervivencia","Trato con animales"],
+                        "valor":[0,0,0,0,0,0,0,0,0,0],
+                        "maximo":5,
+                        "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Conocimientos",
+                        "rasgo":["Burocracioa","Ciencias","Finazas","Informática","Investigación","Leyes","Linguística","Medicina","Ocultismo","Política"],
+                        "valor":[0,0,0,0,0,0,0,0,0,0],
+                        "maximo":5,
+                        "tipo":"topos"
                     }
+
                 ]
 
             }

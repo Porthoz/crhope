@@ -15,62 +15,40 @@
  //Funcion pjController
     function pjController(ficha){
         var vm = this;
-        vm.fichaVampiro = {
 
-            "generacion":9,
-            "modulos":[
-                {
-                    "nombre":"Físicos",
-                    "rasgo":["Fuerza","Destreza","Resistencia"],
-                    "valor":[0,0,0],
-                    "maximo":5,
-                    "tipo":"topos"
-                },
-                {
-                    "nombre":"Físicos",
-                    "rasgo":["Carisma","Manipulación","Apariencia"],
-                    "valor":[0,0,0],
-                    "maximo":5
-
-                },
-                {
-                    "nombre":"Físicos",
-                    "rasgo":["Percepción","Inteligencia","Astucia"],
-                    "valor":[0,0,0],
-                    "maximo":5
-                }
-            ]
-
-        };
-        vm.datosPj=vm.fichaVampiro;
-        vm.generacion=vm.datosPj.generacion;
+        vm.datosPj=ficha.fichaVacia();
+        //vm.generacion=vm.datosPj.generacion;
         vm.max=5;
-
-        //Lógica de relación generacion / max atributo
-        //ficha.getFicha().then(function (data){
-        //    vm.datosPj = data;
-        //    vm.generacion =data.generacion;
-        //});
 
         vm.cargarDatos = function() {
 
-            vm.datosPj = ficha.getFicha();
-            vm.generacion=vm.datosPj.generacion;
+            ficha.getFicha().then(function (data){
+                vm.datosPj = data;
+                //vm.generacion =data.generacion;
+            });
+
             console.log('He cargado los datos');
         };
 
         vm.reset = function() {
-            vm.datosPj=vm.fichaVampiro;
+            vm.datosPj=ficha.fichaVacia();
 
         };
 
         this.cambioGeneracion = function() {
-            var ajuste = function(valor){
+
+            var ajuste = function(maximo){
                 for (var i=0; i<vm.datosPj.modulos.length; i++){
-                    vm.datosPj.modulos[i].maximo=valor;
+                    vm.datosPj.modulos[i].maximo=maximo;
+
+                    for (j=0; j<vm.datosPj.modulos[i].valor.length; j++){
+                        if (vm.datosPj.modulos[i].valor[j]>maximo) {
+                            vm.datosPj.modulos[i].valor[j]=maximo;
+                        }
+                    }
                 }
             };
-            switch (this.generacion) {
+            switch (vm.datosPj.generacion) {
                 case(7):
                     ajuste(6);
                     break;
@@ -94,7 +72,7 @@
 
         };
 
-//        this.cambioGeneracion();
+
 
     }
 

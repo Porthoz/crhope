@@ -19,28 +19,52 @@
 
 </body>
 <div ng-controller="pjController as ctrl">
-    <ul>
-        <li ng-repeat="rasgos in ctrl.datosPj.modulos[0]"> {{rasgos}}</li>
-    </ul>
-    <input type="text" ng-model="ctrl.datosPj.atributosFisicos.Nombre[0]"/>
-    <button ng-click="ctrl.cargarDatos()">Cargar</button>
-    <button ng-click="ctrl.reset()">Reset</button>
+    <div style="display: none;">
+        <ul>
+            <li ng-repeat="rasgos in ctrl.datosPj.modulos[0]"> {{rasgos}}</li>
+        </ul>
+        <input type="text" ng-model="ctrl.datosPj.atributosFisicos.Nombre[0]"/>
+
+    </div>
+    <div style="float:right;">
+        <button ng-click="ctrl.cargarDatos()">Cargar</button>
+        <button ng-click="ctrl.reset()">Reset</button>
+    </div>
 
 
-    <p>Generación: <input ng-model="ctrl.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>
+    <!--<p>Generación: <input ng-model="ctrl.datosPj.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>-->
     <div class="hojaPersonaje">
-        <div class="linea"><h2>Atributos</h2></div>
+        <h1>Ficha de PJ</h1>
+        <div class="bloque">
+            <div class="etiqueta"><span>Nombre: </span><spam editable-text="ctrl.datosPj.nombre">{{ctrl.datosPj.nombre || "Vacío"}}</spam></div>
+            <div class="etiqueta"><span>Jugador: </span><spam editable-text="ctrl.datosPj.jugador">{{ctrl.datosPj.jugador || "Vacío"}}</spam></div>
+            <div class="etiqueta"><span>Crónica: </span><spam editable-text="ctrl.datosPj.cronica">{{ctrl.datosPj.cronica || "Vacío"}}</spam></div>
+        </div>
+        <!--<div class="linea">fdgfd</div>-->
+        <div class="bloque">
+            <div class="etiqueta"><span>Naturaleza: </span><spam editable-text="ctrl.datosPj.naturaleza">{{ctrl.datosPj.naturaleza || "Vacío"}}</spam></div>
+            <div class="etiqueta"><span>Conducta: </span><spam editable-text="ctrl.datosPj.conducta">{{ctrl.datosPj.conducta || "Vacío"}}</spam></div>
+            <div class="etiqueta"><span>Concepto: </span><spam editable-text="ctrl.datosPj.concepto">{{ctrl.datosPj.concepto || "Vacío"}}</spam></div>
+        </div>
+        <!--<div class="linea"></div>-->
+        <div class="bloque">
+            <div class="etiqueta"><spam>Generación: </spam> <input ng-model="ctrl.datosPj.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></div>
+            <div class="etiqueta"><span>Clan: </span><spam editable-text="ctrl.datosPj.clan">{{ctrl.datosPj.clan || "Vacío"}}</spam></div>
+            <div class="etiqueta"><span>Refugio: </span><spam editable-text="ctrl.datosPj.refugio">{{ctrl.datosPj.refugio || "Vacío"}}</spam></div>
+        </div>
+
+        <div class="linea"><h2>Atributos</h2><div>
         <div>
             <div class="bloque"><div><h3>Físicos</h3></div><topos modulo="ctrl.datosPj.modulos[0]"></topos></div>
             <div class="bloque"><div><h3>Sociales</h3></div><topos modulo="ctrl.datosPj.modulos[1]"></topos></div>
             <div class="bloque"><div><h3>Mentales</h3></div><topos modulo="ctrl.datosPj.modulos[2]"></topos></div>
         </div>
         <div class="linea"><h2>Habilidades</h2></div>
-        <!--<div class="linea">-->
-            <!--<div class="bloque"><div><h3>Talentos</h3></div><topos modulo="Actuar,Alerta,Atletismo,Callejeo,Esquivar,Empatía,Intimidación,Liderazgo,Pelea,Subtergio"  max="ctrl.max"></topos></div>-->
-            <!--<div class="bloque"><div><h3>Técnicas</h3></div><topos modulo="Armas C. C.,Armas de Fuego,Conducir,Etiqueta,Música,Reparaciones,Serguridad,Sigilo,Supervivencia,Trato con animales"  max="ctrl.max"></topos></div>-->
-            <!--<div class="bloque"><div><h3>Conocimientos</h3></div><topos modulo="Burocracioa,Ciencias,Finazas,Informática,Investigación,Leyes,Linguística,Medicina,Ocultismo,Política"  max="ctrl.max"></topos></div>-->
-        <!--</div>-->
+        <div class="linea">
+            <div class="bloque"><div><h3>Talentos</h3></div><topos modulo="ctrl.datosPj.modulos[3]"></topos></div>
+            <div class="bloque"><div><h3>Técnicas</h3></div><topos modulo="ctrl.datosPj.modulos[4]"></topos></div>
+            <div class="bloque"><div><h3>Conocimientos</h3></div><topos modulo="ctrl.datosPj.modulos[5]"></topos></div>
+        </div>
         <!--<div class="linea"><h2>Ventajas</h2></div>-->
         <!--<div>-->
             <!--<div class="bloque"><div><h3>Disciplinas</h3></div><topos modulo="Auspex,Celeridad,Presencia"  max="ctrl.max"></topos></div>-->
