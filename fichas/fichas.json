@@ -1,13 +1,13 @@
 {
-  "nombre":"Pepe",
-  "jugador":"Eu mesmo",
-  "cronica":"Iván",
-  "naturaleza":"La mia",
-  "conducta":"La del otro",
+  "nombre":"Prabir Jayana",
+  "jugador":"Domingo",
+  "cronica":"Malignas",
+  "naturaleza":"Planificador",
+  "conducta":"Fanático",
   "concepto":"Abstracto",
-  "generacion":9,
-  "clan":"Nosferrata",
-  "refugio":"Su Casa",
+  "generacion":7,
+  "clan":"Asaminta",
+  "refugio":"Alamut",
   "modulos":[
     {
       "nombre":"Físicos",

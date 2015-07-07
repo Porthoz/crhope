@@ -24,6 +24,7 @@
 
             ficha.getFicha().then(function (data){
                 vm.datosPj = data;
+                vm.cambioGeneracion();
                 //vm.generacion =data.generacion;
             });
 
@@ -32,6 +33,7 @@
 
         vm.reset = function() {
             vm.datosPj=ficha.fichaVacia();
+            vm.cambioGeneracion();
 
         };
 
