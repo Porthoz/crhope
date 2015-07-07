@@ -1,11 +1,20 @@
 
 
+<div class="bloque" ng-mouseenter="alerta('entro aki')" ng-mouseleave="alerta('estoy saliendo')">
+<div style="float:right; color:black; cursor:pointer;" ng-click="anhadirRasgo()">
+    <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 
-<table >
-    <tr ng-repeat="n in modulo.rasgo">
-        <td><div><span editable-text="modulo.rasgo[$index]">{{modulo.rasgo[$index]}}</span></div></td>
-        <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index" ng-click="asignarValor($parent.$index,($index))" ></div></td>
-    </tr>
+</div>
 
-</table>
+    <div><h3>{{modulo.nombre}}</h3></div>
+
+    <table >
+        <tr ng-repeat="n in modulo.rasgo track by $index">
+            <td><div><span editable-text="modulo.rasgo[$index]">{{modulo.rasgo[$index]}}</span></div></td>
+            <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index" ng-click="asignarValor($parent.$index,($index))" ></div></td>
+        </tr>
+    </table>
+
+</div>
+
 

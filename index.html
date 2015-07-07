@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="es">
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="style/style.css"/>
@@ -17,8 +17,8 @@
 
 <body ng-app="crhope">
 
-</body>
-<div ng-controller="pjController as ctrl">
+
+<div style="" ng-controller="pjController as ctrl">
     <div style="display: none;">
         <ul>
             <li ng-repeat="rasgos in ctrl.datosPj.modulos[0]"> {{rasgos}}</li>
@@ -48,24 +48,22 @@
         </div>
         <!--<div class="linea"></div>-->
         <div class="bloque">
-            <div class="etiqueta"><spam>Generación: </spam> <input ng-model="ctrl.datosPj.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></div>
+            <div class="etiqueta"><spam>Generación: </spam> <input style="border: none;" ng-model="ctrl.datosPj.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></div>
             <div class="etiqueta"><span>Clan: </span><spam editable-text="ctrl.datosPj.clan">{{ctrl.datosPj.clan || "Vacío"}}</spam></div>
             <div class="etiqueta"><span>Refugio: </span><spam editable-text="ctrl.datosPj.refugio">{{ctrl.datosPj.refugio || "Vacío"}}</spam></div>
         </div>
 
         <div class="linea"><h2>Atributos</h2></div>
         <div>
-            <div class="bloque"> <div><h3>Físicos</h3></div> <topos modulo="ctrl.datosPj.modulos[0]"></topos></div>
-            <div class="bloque"> <div><h3>Sociales</h3></div> <topos modulo="ctrl.datosPj.modulos[1]"></topos></div>
-            <div class="bloque"> <div><h3>Mentales</h3></div> <topos modulo="ctrl.datosPj.modulos[2]"></topos></div>
+            <topos modulo="ctrl.datosPj.modulos[0]"></topos>
+            <topos modulo="ctrl.datosPj.modulos[1]"></topos>
+            <topos modulo="ctrl.datosPj.modulos[2]"></topos>
         </div>
         <div class="linea"><h2>Habilidades</h2></div>
-        <div class="linea"></div>
         <div>
-            <div class="bloque"><div><h3>Talentos</h3></div><topos modulo="ctrl.datosPj.modulos[3]"></topos></div>
-            <div class="bloque"><div><h3>Técnicas</h3></div><topos modulo="ctrl.datosPj.modulos[4]"></topos></div>
-            <div class="bloque"><div><h3>Conocimientos</h3></div><topos modulo="ctrl.datosPj.modulos[5]"></topos></div>
-
+            <topos modulo="ctrl.datosPj.modulos[3]"></topos>
+            <topos modulo="ctrl.datosPj.modulos[4]"></topos>
+            <topos modulo="ctrl.datosPj.modulos[5]"></topos>
         </div>
     </div>
         <!--<div class="linea"><h2>Ventajas</h2></div>-->
@@ -79,4 +77,6 @@
 
 
 </div>
+
+</body>
 </html>

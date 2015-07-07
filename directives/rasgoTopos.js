@@ -29,6 +29,10 @@
 
                 //inicializo la matriz que represanta los puntos
 
+                vm.anhadirRasgo = function () {
+                    vm.modulo.rasgo.push("Nuevo");
+                    vm.modulo.valor.push(0)
+                };
 
 
                 vm.actualizar = function(){
@@ -47,7 +51,7 @@
                     //console.log(vm.matrizDePuntos);
                 // Que estoy pulsando??
                 vm.alerta = function (msg){
-                    alert(msg);
+                    console.log(msg);
                 };
 
                 //Método para asignar valor a la matriz

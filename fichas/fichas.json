@@ -12,19 +12,19 @@
     {
       "nombre":"Físicos",
       "rasgo":["Fuerza","Destreza","Resistencia"],
-      "valor":[2,3,4],
+      "valor":[5,3,4],
       "maximo":5,
       "tipo":"topos"
     },
     {
-      "nombre":"Físicos",
+      "nombre":"Sociales",
       "rasgo":["Carisma","Manipulación","Apariencia"],
       "valor":[2,5,0],
       "maximo":5,
       "tipo":"topos"
     },
     {
-      "nombre":"Físicos",
+      "nombre":"Mentales",
       "rasgo":["Percepción","Inteligencia","Astucia"],
       "valor":[3,2,3],
       "maximo":5,
