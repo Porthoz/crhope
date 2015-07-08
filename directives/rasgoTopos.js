@@ -24,8 +24,8 @@
                 var marked ='marcado';
                 var unmarked = 'desmarcado';
                 var vm =$scope; // Todo mas clarito
+                //vm.controles =false;
                 vm.matrizDePuntos =[];
-                //inicializo los nombres de los ragos separandolos en un vector
 
                 //inicializo la matriz que represanta los puntos
 

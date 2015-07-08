@@ -1,11 +1,10 @@
 
 
-<div class="bloque" ng-mouseenter="alerta('entro aki')" ng-mouseleave="alerta('estoy saliendo')">
-<div style="float:right; color:black; cursor:pointer;" ng-click="anhadirRasgo()">
+<div class="bloque" ng-mouseenter="controles='visible'" ng-mouseleave="controles='oculto'">
+<div class="accionMas oculto" ng-class="controles" ng-click="anhadirRasgo()">
     <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 
 </div>
-
     <div><h3>{{modulo.nombre}}</h3></div>
 
     <table >
