@@ -1,24 +1,44 @@
 
+<div class="bloque" ng-mouseenter="visibilidad='visible'" ng-mouseleave="visibilidad='oculto'" ng-switch on="bloqueado">
 
-<div class="bloque" ng-mouseenter="controles='visible'" ng-mouseleave="controles='oculto'">
-<!--<div style="float:left;"><span class="glyphicon glyphicon-lock" ng-click="bloqueado=bloqueado===true?false:true"></span></div>-->
-    <div class="accionMas oculto" ng-class="controles" ng-click="anhadirRasgo()">
-        <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    <div style="float:left; cursor:pointer;"><span class="glyphicon glyphicon-lock oculto" ng-class="visibilidad" ng-click="bloqueado=bloqueado==true?false:true"></span></div>
+
+    <div ng-switch-when="false">
+
+        <div class="accionMas oculto" ng-class="visibilidad" ng-click="anhadirRasgo()">
+            <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </div>
+
+        <div><h3>{{modulo.nombre}}</h3></div>
+
+        <table >
+            <tr ng-repeat="n in modulo.rasgo track by $index" ng-mouseenter="" ng-mouseleave="">
+                <td class="control" >
+                    <span class="glyphicon glyphicon-trash oculto papelera " ng-class="visibilidad" ng-click="quitarRasgo($index)" ></span>
+                    <span class="glyphicon glyphicon-plus oculto cruz " ng-class="visibilidad" ng-click="anhadirRasgo($index)"></span>
+                </td>
+                <td><div><span editable-text="modulo.rasgo[$index]" buttons="no" blur="submit">{{modulo.rasgo[$index]||"_______"}}</span></div></td>
+                <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index" ng-click="asignarValor($parent.$index,($index))" ></div></td>
+
+            </tr>
+        </table>
+
     </div>
 
-    <div><h3>{{modulo.nombre}}</h3></div>
+    <div ng-switch-when="true">
 
-    <table >
-        <tr ng-repeat="n in modulo.rasgo track by $index" ng-mouseenter="" ng-mouseleave="">
-            <td class="control" >
-                <span class="glyphicon glyphicon-trash oculto papelera " ng-class="controles" ng-click="quitarRasgo($index)" ></span>
-                <span class="glyphicon glyphicon-plus oculto cruz " ng-class="controles" ng-click="anhadirRasgo($index)"></span>
-            </td>
-            <td><div><span editable-text="modulo.rasgo[$index]" buttons="no" blur="submit">{{modulo.rasgo[$index]||"_______"}}</span></div></td>
-            <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index" ng-click="asignarValor($parent.$index,($index))" ></div></td>
 
-        </tr>
-    </table>
+        <div><h3>{{modulo.nombre}}</h3></div>
+
+        <table >
+            <tr ng-repeat="n in modulo.rasgo track by $index">
+
+                <td><div><span>{{modulo.rasgo[$index]||"_______"}}</span></div></td>
+                <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index"  ></div></td>
+
+            </tr>
+        </table>
+    </div>
 
 </div>
 

@@ -23,8 +23,8 @@
                 var unmarked = 'desmarcado';
 
                 var vm =$scope; // Todo mas clarito
-                //vm.controles =false;
-                //vm.bloqueado= false;
+                //vm.visibilidad =false;
+                vm.bloqueado= false;
                 vm.matrizDePuntos =[];
 
 
