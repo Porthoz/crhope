@@ -48,15 +48,28 @@
     cursor: pointer;
     font-size: 12px;
 }
+
+
+.papelera {
+    color:red;
+    /*padding: 0 0 0 10px;*/
+    cursor:pointer;
+}
+.cruz {
+    /*color:blue;*/
+    padding: 0px 10px 0px 0px;
+    cursor:pointer;
+}
+
 .oculto{
     transition: 0.5s;
     opacity:0;
+    cursor: default;
 }
 .visible{
     opacity:1;
     transition: 0.5s;
 }
-
 .hojaPersonaje {
     /*background-color: cornflowerblue;*/
 }

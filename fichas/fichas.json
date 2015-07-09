@@ -50,7 +50,36 @@
       "valor":[0,0,1,0,1,0,1,2,0,0],
       "maximo":5,
       "tipo":"topos"
+    },
+    {
+      "nombre":"Disciplinas",
+      "rasgo":["Potencia","Celeridad","Fortaleza","Extinción"],
+      "valor":[5,6,5,4],
+      "maximo":5,
+      "tipo":"topos"
+    },
+    {
+      "nombre":"Trasfondos",
+      "rasgo":["","",""],
+      "valor":[0,0,0],
+      "maximo":5,
+      "tipo":"topos"
+    },
+    {
+      "nombre":"Virtudes",
+      "rasgo":["Conciencia","Autocontrol","Coraje"],
+      "valor":[1,1,1],
+      "maximo":5,
+      "tipo":"topos"
+    },
+    {
+      "nombre":"Otros Rasgos",
+      "rasgo":["","",""],
+      "valor":[0,0,0],
+      "maximo":5,
+      "tipo":"topos"
     }
+
   ]
 
 }

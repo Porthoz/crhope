@@ -9,7 +9,7 @@
         .directive('topos',rasgoTopos);
 
 
-    function rasgoTopos() {
+    function rasgoTopos($compile) {
         return {
             restrict: 'E',
             replace:true,
@@ -17,24 +17,38 @@
                 modulo:'='
                 //max:'='
             },
-
-
             controller:function ($scope){
 
                 var marked ='marcado';
                 var unmarked = 'desmarcado';
+
                 var vm =$scope; // Todo mas clarito
                 //vm.controles =false;
+                //vm.bloqueado= false;
                 vm.matrizDePuntos =[];
 
-                //inicializo la matriz que represanta los puntos
 
-                vm.anhadirRasgo = function () {
-                    vm.modulo.rasgo.push("Nuevo");
-                    vm.modulo.valor.push(0)
+                //Añade un rasgo a la matriz
+                vm.anhadirRasgo = function (n) {
+                    if (n === undefined){
+                        vm.modulo.rasgo.push("");
+                        vm.modulo.valor.push(0)
+                    }else {
+                        vm.modulo.rasgo.splice(n,0,'');
+                        vm.modulo.valor.splice(n,0, 0);
+                    }
+
+
+                };
+
+                //quita un rasgo
+                vm.quitarRasgo = function (n){
+                    vm.modulo.rasgo.splice(n,1);
+                    vm.modulo.valor.splice(n,1);
                 };
 
 
+            //Actualiza la matriz de puntos.
                 vm.actualizar = function(){
                     for (var v=0;v<vm.modulo.rasgo.length;v++){
                         vm.matrizDePuntos[v] = [];
@@ -48,7 +62,7 @@
                         }
                     }
                 };
-                    //console.log(vm.matrizDePuntos);
+
                 // Que estoy pulsando??
                 vm.alerta = function (msg){
                     console.log(msg);
@@ -56,8 +70,8 @@
 
                 //Método para asignar valor a la matriz
                 vm.asignarValor =function (rasgo,valor){
+                    //if (vm.bloqueado===true) return;
                     if (valor===(vm.modulo.valor[rasgo]-1)){
-                        //var temp=valor+1;
                         valor=-1;
                     }
                     var r = rasgo;
@@ -69,8 +83,6 @@
                             vm.matrizDePuntos[r][i]=unmarked;
                         }
                     }
-
-                    //vm.matrizDePuntos[0][3]=marked;
                 };
 
                 // método para actualizar el tamaño de la matriz cuando se cambia de generación.
@@ -107,14 +119,13 @@
 
 
             //watches sobre max para actualizar la matriz de vectores
-                //$scope.$watch(function(){return vm.max;},vm.ajustarMatriz);
                 $scope.$watch(function(){return vm.modulo;},vm.actualizar, vm.ajustarMatriz);
 
             },
             templateUrl:'templates/rasgo-topos.html'
 
-        };
 
+        };
 
 
     }

@@ -71,6 +71,34 @@
                         "valor":[0,0,0,0,0,0,0,0,0,0],
                         "maximo":5,
                         "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Disciplinas",
+                        "rasgo":["","",""],
+                        "valor":[0,0,0],
+                        "maximo":5,
+                        "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Trasfondos",
+                        "rasgo":["","",""],
+                        "valor":[0,0,0],
+                        "maximo":5,
+                        "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Virtudes",
+                        "rasgo":["Conciencia","Autocontrol","Coraje"],
+                        "valor":[1,1,1],
+                        "maximo":5,
+                        "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Otros Rasgos",
+                        "rasgo":["","",""],
+                        "valor":[0,0,0],
+                        "maximo":5,
+                        "tipo":"topos"
                     }
 
                 ]
