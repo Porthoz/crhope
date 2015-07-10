@@ -6,13 +6,16 @@
     'use strict'; //nos ponemos serios
 
     angular.module('crhope')
+
+        .directive('bloqueado',toposBloquear)
         .directive('topos',rasgoTopos);
 
 
-    function rasgoTopos($compile) {
+    function rasgoTopos() {
         return {
             restrict: 'E',
             replace:true,
+            priority:1,
             scope:{
                 modulo:'='
                 //max:'='
@@ -116,8 +119,6 @@
 
                 };
 
-
-
             //watches sobre max para actualizar la matriz de vectores
                 $scope.$watch(function(){return vm.modulo;},vm.actualizar, vm.ajustarMatriz);
 
@@ -128,6 +129,20 @@
         };
 
 
+    }
+    function toposBloquear(){
+        return{
+            require:'topos',
+            priority:0,
+            link:function(scope,elem,attrb,toposCtrl){
+                //toposCtrl.bloqueado=true;
+                console.log('estoy aki');
+                toposCtrl.cosicosa='kakota';
+                console.log(toposCtrl.cosicosa);
+
+
+            }
+        }
     }
 
 
