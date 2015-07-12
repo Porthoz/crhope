@@ -31,7 +31,7 @@
                     vm.bloqueado =true
                 }
 
-                //Añade un rasgo a la matriz
+                //Añade un rasgo al módulo y rellena la matriz
                 vm.anhadirRasgo = function (n) {
                     if (n === undefined){
                         vm.modulo.rasgo.push("");
@@ -44,14 +44,14 @@
 
                 };
 
-                //quita un rasgo
+                //quita un rasgo del módulo
                 vm.quitarRasgo = function (n){
                     vm.modulo.rasgo.splice(n,1);
                     vm.modulo.valor.splice(n,1);
                 };
 
 
-            //Actualiza la matriz de puntos.
+            //Actualiza la matriz de puntos para que represente los valores.
                 vm.actualizar = function(){
                     for (var v=0;v<vm.modulo.rasgo.length;v++){
                         vm.matrizDePuntos[v] = [];
@@ -71,9 +71,9 @@
                     console.log(msg);
                 };
 
-                //Método para asignar valor a la matriz
+                //Método para asignar valor a un rasgo
                 vm.asignarValor =function (rasgo,valor){
-                    //if (vm.bloqueado===true) return;
+
                     if (valor===(vm.modulo.valor[rasgo]-1)){
                         valor=-1;
                     }
@@ -121,16 +121,11 @@
 
             //watches sobre max para actualizar la matriz de vectores
                 $scope.$watch(function(){return vm.modulo;},vm.actualizar, vm.ajustarMatriz);
-
             },
             templateUrl:'templates/rasgo-topos.html'
-
-
         };
-
-
     }
-
+    //otra directiva
     function toposBloquear(){
         return{
             require:'topos',

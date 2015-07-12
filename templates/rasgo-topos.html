@@ -1,7 +1,7 @@
 
 <div class="bloque" ng-mouseenter="visibilidad='visible'" ng-mouseleave="visibilidad='oculto'" ng-switch on="bloqueado">
 
-    <div style="float:left; cursor:pointer;"><span class="glyphicon glyphicon-lock oculto" ng-class="visibilidad" ng-click="bloqueado=bloqueado==true?false:true"></span></div>
+    <div style="float:left; cursor:pointer;"><span class="glyphicon glyphicon-lock oculto" ng-class="visibilidad" ng-click="bloqueado=bloqueado===true?false:true"></span></div>
 
     <div ng-switch-when="false">
 

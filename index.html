@@ -9,9 +9,11 @@
     <script src="controllers/pjController.js"></script>
     <script src="services/fichaProvider.js"></script>
     <script src="directives/rasgoTopos.js"></script>
+    <script src="directives/generacionDir.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link href="style/xeditable.css" rel="stylesheet">
+
 
 </head>
 
@@ -19,7 +21,8 @@
 
 
 <div style="" ng-controller="pjController as ctrl">
-    <div style="display: none;">
+    <div style="display: non;">
+
         <ul>
             <li ng-repeat="rasgos in ctrl.datosPj.modulos[0]"> {{rasgos}}</li>
         </ul>
@@ -30,11 +33,10 @@
     <div style="float:right;">
         <button ng-click="ctrl.cargarDatos()">Cargar</button>
         <button ng-click="ctrl.reset()">Reset</button>
-        <input type="file"/>
-    </div>
+     </div>
 
 
-    <!--<p>Generación: <input ng-model="ctrl.datosPj.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>-->
+   <!--<p>Generación: <input ng-model="ctrl.datosPj.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>-->
     <div class="hojaPersonaje">
         <h1>Ficha de PJ</h1>
         <div>
@@ -49,7 +51,7 @@
                 <div class="etiqueta"><span>Concepto: </span><spam editable-text="ctrl.datosPj.concepto" buttons="no" blur="submit">{{ctrl.datosPj.concepto || "_______"}}</spam></div>
             </div>
             <div class="bloque">
-                <div class="etiqueta"><spam>Generación: </spam> <input style="border: none;" ng-model="ctrl.datosPj.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></div>
+                <div class="etiqueta"><generacion ficha="ctrl.datosPj"></generacion></div>
                 <div class="etiqueta"><span>Clan: </span><spam editable-text="ctrl.datosPj.clan" buttons="no" blur="submit">{{ctrl.datosPj.clan || "_______"}}</spam></div>
                 <div class="etiqueta"><span>Refugio: </span><spam editable-text="ctrl.datosPj.refugio" buttons="no" blur="submit">{{ctrl.datosPj.refugio || "_______"}}</spam></div>
             </div>

@@ -91,7 +91,7 @@
                         "rasgo":["Conciencia","Autocontrol","Coraje"],
                         "valor":[1,1,1],
                         "maximo":5,
-                        "tipo":"topos"
+                        "tipo":"topos_fijo"
                     },
                     {
                         "nombre":"Otros Rasgos",
