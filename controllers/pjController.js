@@ -15,11 +15,8 @@
  //Funcion pjController
     function pjController(ficha){
         var vm = this;
-
         vm.datosPj=ficha.fichaVacia();
-        //vm.generacion=vm.datosPj.generacion;
-        vm.max=5;
-
+        
         vm.cargarDatos = function() {
 
             ficha.getFicha().then(function (data){
@@ -37,7 +34,7 @@
 
         };
 
-        this.cambioGeneracion = function() {
+        vm.cambioGeneracion = function() {
 
             var ajuste = function(maximo){
                 for (var i=0; i<vm.datosPj.modulos.length; i++){

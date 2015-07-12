@@ -10,7 +10,7 @@
     <script src="services/fichaProvider.js"></script>
     <script src="directives/rasgoTopos.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
-    <link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link href="style/xeditable.css" rel="stylesheet">
 
 </head>
@@ -57,8 +57,8 @@
 
         <div class="linea">
             <h3>Atributos</h3>
-            <topos bloqueado="true" modulo="ctrl.datosPj.modulos[0]"></topos>
-            <topos modulo="ctrl.datosPj.modulos[1]"></topos>
+            <topos  modulo="ctrl.datosPj.modulos[0]" bloqueo></topos>
+            <topos modulo="ctrl.datosPj.modulos[1]" ></topos>
             <topos modulo="ctrl.datosPj.modulos[2]"></topos>
         </div>
 
@@ -76,7 +76,6 @@
         </div>
         <div class="linea">
             <topos modulo="ctrl.datosPj.modulos[9]"></topos>
-
 
         </div>
     </div>

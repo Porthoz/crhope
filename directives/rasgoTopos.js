@@ -6,16 +6,13 @@
     'use strict'; //nos ponemos serios
 
     angular.module('crhope')
-
-        .directive('bloqueado',toposBloquear)
+        .directive('bloqueo',toposBloquear)
         .directive('topos',rasgoTopos);
 
 
     function rasgoTopos() {
         return {
             restrict: 'E',
-            replace:true,
-            priority:1,
             scope:{
                 modulo:'='
                 //max:'='
@@ -30,6 +27,9 @@
                 vm.bloqueado= false;
                 vm.matrizDePuntos =[];
 
+                this.bloquear =function(){
+                    vm.bloqueado =true
+                }
 
                 //Añade un rasgo a la matriz
                 vm.anhadirRasgo = function (n) {
@@ -130,17 +130,12 @@
 
 
     }
+
     function toposBloquear(){
         return{
             require:'topos',
-            priority:0,
-            link:function(scope,elem,attrb,toposCtrl){
-                //toposCtrl.bloqueado=true;
-                console.log('estoy aki');
-                toposCtrl.cosicosa='kakota';
-                console.log(toposCtrl.cosicosa);
-
-
+            link:function (scope, elem, attrb, toposCtrl){
+                toposCtrl.bloquear();
             }
         }
     }
