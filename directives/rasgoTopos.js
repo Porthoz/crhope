@@ -24,6 +24,7 @@
 
                 var vm =$scope; // Todo mas clarito
                 //vm.visibilidad =false;
+
                 vm.bloqueado= false;
                 vm.matrizDePuntos =[];
 
@@ -51,7 +52,7 @@
                 };
 
 
-            //Actualiza la matriz de puntos para que represente los valores.
+            //Actualiza la matriz de puntos para que represente los valores cuando estos sean modificados.
                 vm.actualizar = function(){
                     for (var v=0;v<vm.modulo.rasgo.length;v++){
                         vm.matrizDePuntos[v] = [];

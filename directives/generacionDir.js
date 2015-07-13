@@ -51,6 +51,7 @@ angular.module('crhope')
 
         		};
 
+                $scope.$watch(function(){return vm.datosPj.generacion;},vm.cambioGeneracion);
 			},
 			template:'<spam>Generación: </spam> <input style="border: none;" ng-model="datosPj.generacion" ng-change="cambioGeneracion()" type="number" min="3" max="13">'
 		};

@@ -21,8 +21,6 @@
 
             ficha.getFicha().then(function (data){
                 vm.datosPj = data;
-                vm.cambioGeneracion();
-                //vm.generacion =data.generacion;
             });
 
             console.log('He cargado los datos');
@@ -30,47 +28,16 @@
 
         vm.reset = function() {
             vm.datosPj=ficha.fichaVacia();
-            vm.cambioGeneracion();
-
         };
 
-        vm.cambioGeneracion = function() {
+        vm.bloqueo = function() {
 
-            var ajuste = function(maximo){
+            for (var i =0; i < vm.datosPj.modulos.length;i++){
 
-                for (var i=0; i<vm.datosPj.modulos.length; i++){
-                    vm.datosPj.modulos[i].maximo=vm.datosPj.modulos[i].tipo==='topos'?maximo:5;
-
-                    for (var j=0; j<vm.datosPj.modulos[i].valor.length; j++){
-                        if (vm.datosPj.modulos[i].valor[j]>maximo) {
-                            vm.datosPj.modulos[i].valor[j]=maximo;
-                        }
-                    }
-                }
-            };
-            switch (vm.datosPj.generacion) {
-                case(7):
-                    ajuste(6);
-                    break;
-                case(6):
-                    ajuste(7);
-                    break;
-                case(5):
-                    ajuste(8);
-                    break;
-                case(4):
-                    ajuste(9);
-                    break;
-                case(3):
-                    ajuste(10);
-                    break;
-                case(null):
-                    break;
-                default:
-                    ajuste(5);
             }
+        }
 
-        };
+
 
     }
 
