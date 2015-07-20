@@ -16,6 +16,14 @@
             return defferer.promise;
         };
 
+        fichaFactory.getUser = function (){
+            var defferer = $q.defer();
+            $http.get('http://localhost:1337/user').success(function (data){
+                defferer.resolve(data);
+            });
+            return defferer.promise;
+        };
+
         fichaFactory.fichaVacia = function(){
 
             return {

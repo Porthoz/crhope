@@ -16,7 +16,10 @@
     function pjController(ficha){
         var vm = this;
         vm.datosPj=ficha.fichaVacia();
-        
+        ficha.getUser().then(function(data){
+           vm.usuario=data[0];
+        });
+
         vm.cargarDatos = function() {
 
             ficha.getFicha().then(function (data){
@@ -29,6 +32,7 @@
         vm.reset = function() {
             vm.datosPj=ficha.fichaVacia();
         };
+
 
         vm.bloqueo = function() {
 
