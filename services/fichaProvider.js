@@ -38,6 +38,25 @@
                 "refugio":"",
                 "modulos":[
                     {
+                        "rasgo":["Nombre","Jugador","Crónica"],
+                        "valor":["","",""],
+                        "maximo":5,
+                        "tipo":"texto-editable"
+                    },
+                    {
+                        "rasgo":["Naturaleza","Conducta","Concepto"],
+                        "valor":["","",""],
+                        "maximo":5,
+                        "tipo":"texto-editable"
+                    },
+                    {
+                        "rasgo":["Clan","Refugio"],
+                        "valor":["","",""],
+                        "maximo":5,
+                        "tipo":"texto-editable"
+                    },
+
+                    {
                         "nombre":"Físicos",
                         "rasgo":["Fuerza","Destreza","Resistencia"],
                         "valor":[1,1,1],
@@ -99,7 +118,7 @@
                         "rasgo":["Conciencia","Autocontrol","Coraje"],
                         "valor":[1,1,1],
                         "maximo":5,
-                        "tipo":"topos_fijo"
+                        "tipo":"topos-fijo"
                     },
                     {
                         "nombre":"Otros Rasgos",
@@ -108,6 +127,7 @@
                         "maximo":5,
                         "tipo":"topos"
                     }
+
 
                 ]
 

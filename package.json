@@ -1,0 +1,26 @@
+{
+  "name": "crhope",
+  "version": "0.0.0",
+  "description": "Creador de hojas de personaje de vampiro (Front-end)",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "^1.4.3",
+    "angular-xeditable": "0.0.1",
+    "bootstrap": "^3.3.5",
+    "http-server": "^0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "pm2 start node_modules/http-server/bin/http-server  -- -p 6765"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Porthoz/crhope.git"
+  },
+  "author": "Domingo Rodríguez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Porthoz/crhope/issues"
+  }
+}

@@ -8,17 +8,19 @@
 
         .controller ('pjController', ['ficha',pjController])
         .run (function(editableOptions) {
-            editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+            editableOptions.theme = 'bs3'; // bootstrap3. También puede ser 'bs2', 'default'
         });
 
 
- //Funcion pjController
+ //Función pjController
     function pjController(ficha){
         var vm = this;
+
         vm.datosPj=ficha.fichaVacia();
-        ficha.getUser().then(function(data){
-           vm.usuario=data[0];
-        });
+
+        //ficha.getUser().then(function(data){
+        //   vm.usuario=data[0];
+        //});
 
         vm.cargarDatos = function() {
 

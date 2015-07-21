@@ -10,6 +10,7 @@
     <script src="services/fichaProvider.js"></script>
     <script src="directives/rasgoTopos.js"></script>
     <script src="directives/generacionDir.js"></script>
+    <script src="directives/textoEditable.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link href="style/xeditable.css" rel="stylesheet">
@@ -24,11 +25,9 @@
     <div style="display: non;">
 
         <ul>
-            <li ng-repeat="rasgos in ctrl.datosPj.modulos[0]"> {{rasgos}}</li>
+            <li ng-repeat="rasgos in ctrl.datosPj.modulos[4]"> {{rasgos}}</li>
         </ul>
         <input type="text" ng-model="ctrl.datosPj.atributosFisicos.Nombre[0]"/>
-
-        {{ctrl.usuario}}
 
     </div>
     <div style="float:right;">
@@ -37,52 +36,65 @@
 
      </div>
 
+<!--<texto-variable modulo="ctrl.datosPj.modulos[10]"></texto-variable>-->
 
-   <!--<p>Generación: <input ng-model="ctrl.datosPj.generacion" ng-change="ctrl.cambioGeneracion()" type="number" min="3" max="13"></p>-->
-    <div class="hojaPersonaje">
-        <h1>Ficha de PJ</h1>
-        <div>
-            <div class="bloque">
-                <div class="etiqueta"><span>Nombre: </span><spam editable-text="ctrl.datosPj.nombre" buttons="no" blur="submit">{{ctrl.datosPj.nombre || "_______"}}</spam></div>
-                <div class="etiqueta"><span>Jugador: </span><spam editable-text="ctrl.datosPj.jugador" buttons="no" blur="submit">{{ctrl.datosPj.jugador || "_______"}}</spam></div>
-                <div class="etiqueta"><span>Crónica: </span><spam editable-text="ctrl.datosPj.cronica" buttons="no" blur="submit">{{ctrl.datosPj.cronica || "_______"}}</spam></div>
-            </div>
-            <div class="bloque">
-                <div class="etiqueta"><span>Naturaleza: </span><spam editable-text="ctrl.datosPj.naturaleza" buttons="no" blur="submit">{{ctrl.datosPj.naturaleza || "_______"}}</spam></div>
-                <div class="etiqueta"><span>Conducta: </span><spam editable-text="ctrl.datosPj.conducta" buttons="no" blur="submit">{{ctrl.datosPj.conducta || "_______"}}</spam></div>
-                <div class="etiqueta"><span>Concepto: </span><spam editable-text="ctrl.datosPj.concepto" buttons="no" blur="submit">{{ctrl.datosPj.concepto || "_______"}}</spam></div>
-            </div>
-            <div class="bloque">
-                <div class="etiqueta"><generacion ficha="ctrl.datosPj"></generacion></div>
-                <div class="etiqueta"><span>Clan: </span><spam editable-text="ctrl.datosPj.clan" buttons="no" blur="submit">{{ctrl.datosPj.clan || "_______"}}</spam></div>
-                <div class="etiqueta"><span>Refugio: </span><spam editable-text="ctrl.datosPj.refugio" buttons="no" blur="submit">{{ctrl.datosPj.refugio || "_______"}}</spam></div>
-            </div>
-        </div>
 
-        <div class="linea">
-            <h3>Atributos</h3>
-            <topos  modulo="ctrl.datosPj.modulos[0]"></topos>
-            <topos modulo="ctrl.datosPj.modulos[1]" ></topos>
-            <topos modulo="ctrl.datosPj.modulos[2]"></topos>
-        </div>
 
-        <div class="linea">
-            <h3>Habilidades</h3>
-            <topos modulo="ctrl.datosPj.modulos[3]"></topos>
-            <topos modulo="ctrl.datosPj.modulos[4]"></topos>
-            <topos modulo="ctrl.datosPj.modulos[5]"></topos>
-        </div>
-        <div class="linea">
-            <h3>Ventajas</h3>
-            <topos modulo="ctrl.datosPj.modulos[6]"></topos>
-            <topos modulo="ctrl.datosPj.modulos[7]"></topos>
-            <topos modulo="ctrl.datosPj.modulos[8]"></topos>
-        </div>
-        <div class="linea">
-            <topos modulo="ctrl.datosPj.modulos[9]"></topos>
-
-        </div>
+<div class="hojaPersonaje">
+    <generacion ficha="ctrl.datosPj"></generacion>
+    <div ng-repeat="n in ctrl.datosPj.modulos">
+        <span ng-if="($index % 3)===0"> <div class="linea"></div></span>
+        <span ng-if="n.tipo===('topos')||n.tipo==='topos-fijo'"><topos  modulo="n"></topos>   </span>
+        <span ng-if="n.tipo==='texto-editable'"><texto-variable modulo="n"></texto-variable></span>
     </div>
+
+</div>
+
+
+    <!--<div class="hojaPersonaje">-->
+        <!--<h1>Ficha de PJ</h1>-->
+        <!--<div>-->
+            <!--<div class="bloque">-->
+                <!--<div class="etiqueta"><span>Nombre: </span><spam editable-text="ctrl.datosPj.nombre" buttons="no" blur="submit">{{ctrl.datosPj.nombre || "_______"}}</spam></div>-->
+                <!--<div class="etiqueta"><span>Jugador: </span><spam editable-text="ctrl.datosPj.jugador" buttons="no" blur="submit">{{ctrl.datosPj.jugador || "_______"}}</spam></div>-->
+                <!--<div class="etiqueta"><span>Crónica: </span><spam editable-text="ctrl.datosPj.cronica" buttons="no" blur="submit">{{ctrl.datosPj.cronica || "_______"}}</spam></div>-->
+            <!--</div>-->
+            <!--<div class="bloque">-->
+                <!--<div class="etiqueta"><span>Naturaleza: </span><spam editable-text="ctrl.datosPj.naturaleza" buttons="no" blur="submit">{{ctrl.datosPj.naturaleza || "_______"}}</spam></div>-->
+                <!--<div class="etiqueta"><span>Conducta: </span><spam editable-text="ctrl.datosPj.conducta" buttons="no" blur="submit">{{ctrl.datosPj.conducta || "_______"}}</spam></div>-->
+                <!--<div class="etiqueta"><span>Concepto: </span><spam editable-text="ctrl.datosPj.concepto" buttons="no" blur="submit">{{ctrl.datosPj.concepto || "_______"}}</spam></div>-->
+            <!--</div>-->
+            <!--<div class="bloque">-->
+                <!--<div class="etiqueta"><generacion ficha="ctrl.datosPj"></generacion></div>-->
+                <!--<div class="etiqueta"><span>Clan: </span><spam editable-text="ctrl.datosPj.clan" buttons="no" blur="submit">{{ctrl.datosPj.clan || "_______"}}</spam></div>-->
+                <!--<div class="etiqueta"><span>Refugio: </span><spam editable-text="ctrl.datosPj.refugio" buttons="no" blur="submit">{{ctrl.datosPj.refugio || "_______"}}</spam></div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="linea">-->
+            <!--<h3>Atributos</h3>-->
+            <!--<topos  modulo="ctrl.datosPj.modulos[0]"></topos>-->
+            <!--<topos modulo="ctrl.datosPj.modulos[1]" ></topos>-->
+            <!--<topos modulo="ctrl.datosPj.modulos[2]"></topos>-->
+        <!--</div>-->
+
+        <!--<div class="linea">-->
+            <!--<h3>Habilidades</h3>-->
+            <!--<topos modulo="ctrl.datosPj.modulos[3]"></topos>-->
+            <!--<topos modulo="ctrl.datosPj.modulos[4]"></topos>-->
+            <!--<topos modulo="ctrl.datosPj.modulos[5]"></topos>-->
+        <!--</div>-->
+        <!--<div class="linea">-->
+            <!--<h3>Ventajas</h3>-->
+            <!--<topos modulo="ctrl.datosPj.modulos[6]"></topos>-->
+            <!--<topos modulo="ctrl.datosPj.modulos[7]"></topos>-->
+            <!--<topos modulo="ctrl.datosPj.modulos[8]"></topos>-->
+        <!--</div>-->
+        <!--<div class="linea">-->
+            <!--<topos modulo="ctrl.datosPj.modulos[9]"></topos>-->
+
+        <!--</div>-->
+    <!--</div>-->
 
 
 
