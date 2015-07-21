@@ -126,6 +126,13 @@
                         "valor":[0,0,0],
                         "maximo":5,
                         "tipo":"topos"
+                    },
+                    {
+                        "nombre":"Fuerza de voluntad",
+                        "rasgo":["texto","circulo","cuadrado"],
+                        "valor":['Senda__________',6,7],
+                        "maximo":10,
+                        "tipo":"fuerza-voluntad"
                     }
 
 

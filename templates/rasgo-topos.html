@@ -18,7 +18,7 @@
                     <span class="glyphicon glyphicon-plus oculto cruz " ng-class="visibilidad" ng-click="anhadirRasgo($index)"></span>
                 </td>
                 <td><div><span editable-text="modulo.rasgo[$index]" buttons="no" blur="submit">{{modulo.rasgo[$index]||"_______"}}</span></div></td>
-                <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index" ng-click="asignarValor($parent.$index,($index))" ></div></td>
+                <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDeValores[$index] track by $index" ng-click="asignarValor($parent.$index,($index))" ></div></td>
 
             </tr>
         </table>
@@ -34,7 +34,7 @@
             <tr ng-repeat="n in modulo.rasgo track by $index">
 
                 <td><div><span>{{modulo.rasgo[$index]||"_______"}}</span></div></td>
-                <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDePuntos[$index] track by $index"  ></div></td>
+                <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDeValores[$index] track by $index"  ></div></td>
 
             </tr>
         </table>

@@ -18,7 +18,8 @@ angular.module('crhope')
 		            var ajuste = function(maximo){
 
 		                for (var i=0; i<vm.datosPj.modulos.length; i++){
-		                    vm.datosPj.modulos[i].maximo=vm.datosPj.modulos[i].tipo==='topos'?maximo:5;
+		                    vm.datosPj.modulos[i].maximo=vm.datosPj.modulos[i].tipo==='topos-fijo'?5:maximo;
+							vm.datosPj.modulos[i].maximo=vm.datosPj.modulos[i].tipo==='fuerza-voluntad'?10:maximo;
 
 		                    for (var j=0; j<vm.datosPj.modulos[i].valor.length; j++){
 		                        if (vm.datosPj.modulos[i].valor[j]>maximo) {

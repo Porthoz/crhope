@@ -19,18 +19,18 @@
             },
             controller:function ($scope){
 
-                var marked ='marcado';
-                var unmarked = 'desmarcado';
+                var marked ='topo marcado';
+                var unmarked = 'topo desmarcado';
 
                 var vm =$scope; // Todo mas clarito
                 //vm.visibilidad =false;
 
                 vm.bloqueado= false;
-                vm.matrizDePuntos =[];
+                vm.matrizDeValores =[];
 
                 this.bloquear =function(){
                     vm.bloqueado =true
-                }
+                };
 
                 //Añade un rasgo al módulo y rellena la matriz
                 vm.anhadirRasgo = function (n) {
@@ -55,12 +55,12 @@
             //Actualiza la matriz de puntos para que represente los valores cuando estos sean modificados.
                 vm.actualizar = function(){
                     for (var v=0;v<vm.modulo.rasgo.length;v++){
-                        vm.matrizDePuntos[v] = [];
+                        vm.matrizDeValores[v] = [];
                         for (var i=0;i<vm.modulo.maximo;i++){
                             if (vm.modulo.valor[v]>i){
-                                vm.matrizDePuntos[v].push(marked)
+                                vm.matrizDeValores[v].push(marked)
                             }else{
-                                vm.matrizDePuntos[v].push(unmarked);
+                                vm.matrizDeValores[v].push(unmarked);
                             }
 
                         }
@@ -80,11 +80,11 @@
                     }
                     var r = rasgo;
                     vm.modulo.valor[rasgo]=valor+1;
-                    for (var i=0;i<vm.matrizDePuntos[r].length;i++){
+                    for (var i=0;i<vm.matrizDeValores[r].length;i++){
                         if (i<=valor){
-                            vm.matrizDePuntos[r][i]=marked;
+                            vm.matrizDeValores[r][i]=marked;
                         } else{
-                            vm.matrizDePuntos[r][i]=unmarked;
+                            vm.matrizDeValores[r][i]=unmarked;
                         }
                     }
                 };
@@ -92,28 +92,28 @@
                 // método para actualizar el tamaño de la matriz cuando se cambia de generación.
                 vm.ajustarMatriz=function(){
 
-                    for (var i =0; vm.matrizDePuntos[i]; i++){
+                    for (var i =0; vm.matrizDeValores[i]; i++){
                         ajustarVector(i);
                     }
 
                     function ajustarVector (v){
 
                         if (vm.max!==null){
-                            for (var i=0;vm.matrizDePuntos[v].length<vm.max;i++){
+                            for (var i=0;vm.matrizDeValores[v].length<vm.max;i++){
                                 anhadirPunto(v);
                             }
-                            for (var m=0;vm.matrizDePuntos[v].length>vm.max;m++){
+                            for (var m=0;vm.matrizDeValores[v].length>vm.max;m++){
                                 quitarPunto(v);
                             }
                         }
 
                         function anhadirPunto(n){
-                            vm.matrizDePuntos[n].push(unmarked);
+                            vm.matrizDeValores[n].push(unmarked);
                         }
 
                         function quitarPunto(n){
-                            if (vm.matrizDePuntos[n].length>1){
-                                vm.matrizDePuntos[n].pop();
+                            if (vm.matrizDeValores[n].length>1){
+                                vm.matrizDeValores[n].pop();
                             }
                         }
                     }

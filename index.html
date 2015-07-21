@@ -11,6 +11,7 @@
     <script src="directives/rasgoTopos.js"></script>
     <script src="directives/generacionDir.js"></script>
     <script src="directives/textoEditable.js"></script>
+    <script src="directives/fuerzaVoluntad.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link href="style/xeditable.css" rel="stylesheet">
@@ -25,7 +26,7 @@
     <div style="display: non;">
 
         <ul>
-            <li ng-repeat="rasgos in ctrl.datosPj.modulos[4]"> {{rasgos}}</li>
+            <li ng-repeat="rasgos in ctrl.datosPj.modulos[13]"> {{rasgos}}</li>
         </ul>
         <input type="text" ng-model="ctrl.datosPj.atributosFisicos.Nombre[0]"/>
 
@@ -39,6 +40,8 @@
 <!--<texto-variable modulo="ctrl.datosPj.modulos[10]"></texto-variable>-->
 
 
+
+<fuerza-voluntad modulo="ctrl.datosPj.modulos[13]"></fuerza-voluntad>
 
 <div class="hojaPersonaje">
     <generacion ficha="ctrl.datosPj"></generacion>

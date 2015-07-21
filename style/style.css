@@ -1,9 +1,8 @@
-.desmarcado {
+.topo {
 
     border-radius: 50%;
     width: 13px;
     height: 13px;
-    background-color: whitesmoke;
     border:solid black 3px;
     float: left;
     margin-right:2px;
@@ -11,17 +10,19 @@
     cursor:pointer;
 
 }
+
+
+
+.desmarcado {
+
+    background-color: whitesmoke;
+
+
+}
 .marcado {
 
-    border-radius: 50%;
-    width: 13px;
-    height: 13px;
     background-color: black;
-    border:solid black 3px;
-    float: left;
-    margin-right:2px;
-    transition: 0.5s;
-    cursor:pointer;
+
 }
 
 .linea {
@@ -73,10 +74,4 @@
 .hojaPersonaje {
     /*background-color: cornflowerblue;*/
 }
-svg {
-    /*width:100%;*/
-    /*height: auto;*/
-    /*margin-right: -50px;*/
-    /*padding: 0;*/
 
-}

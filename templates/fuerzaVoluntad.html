@@ -1,0 +1,12 @@
+<div class="bloque">
+{{matrizDeValores}}
+<table>
+    <th>{{modulo.nombre}}</th>
+    <tr ng-repeat="n in matrizDeValores track by $index">
+        <td ng-if="modulo.rasgo[$index]==='circulo'"><div ng-repeat="i in matrizDeValores[$index] track by $index" class="{{i}}"></div></td>
+        <td ng-if="modulo.rasgo[$index]==='cuadrado'"><div ng-repeat="i in matrizDeValores[$index] track by $index" class="{{i}}"></div></td>
+        <td ng-if="modulo.rasgo[$index]==='texto'"><div>{{modulo.valor[$index]}}</div></td>
+    </tr>
+
+</table>
+</div>
