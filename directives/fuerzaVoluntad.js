@@ -16,9 +16,25 @@
                 modulo:'='
             },
             controller: function($scope){
-                var marked="topo marcado";
-                var unmarked="topo desmarcado";
+                var marked="marcado";
+                var unmarked="desmarcado";
                 var vm =$scope;
+                //vm.numero= 29;
+                //
+                //vm.getNumero =function(num){
+                //    return new Array(num);
+                //};
+                //
+                //vm.generarReserva= function(num){
+                //    switch (num){
+                //        case(7):
+                //            return new Array(20);
+                //        default:
+                //            return new Array(10);
+                //    }
+                //
+                //};
+
                 vm.matrizDeValores=[];
 
                 vm.actualizar = function(){
@@ -26,7 +42,7 @@
                         if (vm.modulo.rasgo[v]==='texto'){ vm.matrizDeValores[v]=null; console.log('es texto')}
                         else{
                             vm.matrizDeValores[v] = [];
-                            for (var i=0;i<vm.modulo.maximo;i++){
+                            for (var i=0;i<vm.modulo.maximo.valor;i++){
                                 if (vm.modulo.valor[v]>i){
                                     vm.matrizDeValores[v].push(marked)
                                 }else{

@@ -1,6 +1,7 @@
 /**
  * Created by porthos on 8/05/15.
  */
+
 (function(angular){
 
     'use strict'; //nos ponemos serios
@@ -11,6 +12,8 @@
 
 
     function rasgoTopos() {
+
+
         return {
             restrict: 'E',
             scope:{
@@ -25,12 +28,36 @@
                 var vm =$scope; // Todo mas clarito
                 //vm.visibilidad =false;
 
+                vm.modulo={
+                    "nombre":"",
+                    "rasgo":[""],
+                    "valor":[0],
+                    "maximo":{"valor":5,"editable":true},
+                    "bloqueado":{"valor":true,"editable":false},
+                   };
+
                 vm.bloqueado= false;
                 vm.matrizDeValores =[];
 
                 this.bloquear =function(){
                     vm.bloqueado =true
                 };
+
+                vm.generarMatriz = function (valor,max) {
+                    var matriz=[];
+
+                    for (var i=0; i<valor.length;i++){
+                        matriz[i]=[];
+
+                        for (var j=0;j<max;j++){
+                            if (j<valor[i]){matriz[i][j]=marked}
+
+                            else{matriz[i][j]=unmarked}
+                        }
+                    }
+                    return matriz;
+                };
+                console.log(vm.generarMatriz([1,3,2],7));
 
                 //Añade un rasgo al módulo y rellena la matriz
                 vm.anhadirRasgo = function (n) {
@@ -52,21 +79,6 @@
                 };
 
 
-            //Actualiza la matriz de puntos para que represente los valores cuando estos sean modificados.
-                vm.actualizar = function(){
-                    for (var v=0;v<vm.modulo.rasgo.length;v++){
-                        vm.matrizDeValores[v] = [];
-                        for (var i=0;i<vm.modulo.maximo;i++){
-                            if (vm.modulo.valor[v]>i){
-                                vm.matrizDeValores[v].push(marked)
-                            }else{
-                                vm.matrizDeValores[v].push(unmarked);
-                            }
-
-                        }
-                    }
-                };
-
                 // Que estoy pulsando??
                 vm.alerta = function (msg){
                     console.log(msg);
@@ -85,6 +97,21 @@
                             vm.matrizDeValores[r][i]=marked;
                         } else{
                             vm.matrizDeValores[r][i]=unmarked;
+                        }
+                    }
+                };
+
+                //Actualiza la matriz de puntos para que represente los valores cuando estos sean modificados.
+                vm.actualizar = function(){
+                    for (var v=0;v<vm.modulo.rasgo.length;v++){
+                        vm.matrizDeValores[v] = [];
+                        for (var i=0;i<vm.modulo.maximo.valor;i++){
+                            if (vm.modulo.valor[v]>i){
+                                vm.matrizDeValores[v].push(marked)
+                            }else{
+                                vm.matrizDeValores[v].push(unmarked);
+                            }
+
                         }
                     }
                 };
@@ -120,12 +147,15 @@
 
                 };
 
-            //watches sobre max para actualizar la matriz de vectores
-                $scope.$watch(function(){return vm.modulo;},vm.actualizar, vm.ajustarMatriz);
+                //watches sobre max para actualizar la matriz de vectores
+                //$scope.$watch(function(){return vm.modulo;},vm.actualizar, vm.ajustarMatriz);
+                $scope.$watch(function(){return vm.modulo.valor;},vm.actualizar);
             },
-            templateUrl:'templates/rasgo-topos.html'
+            templateUrl:'templates/rasgoTopo.html'
+
         };
     }
+
     //otra directiva
     function toposBloquear(){
         return{

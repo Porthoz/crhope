@@ -5,10 +5,34 @@
     height: 13px;
     border:solid black 3px;
     float: left;
-    margin-right:2px;
+    margin: 1px 2px 1px 0px;
     transition: 0.5s;
     cursor:pointer;
 
+}
+
+.cuadrado {
+
+    /*border-radius: 50%;*/
+    width: 19px;
+    height: 19px;
+    border:solid black 4px;
+    float: left;
+    margin: 1px 2px 1px 0px;
+    transition: 0.5s;
+    cursor:pointer;
+
+}
+
+.circulo {
+    border-radius: 50%;
+    width: 19px;
+    height: 21px;
+    border: solid black 4px;
+    float: left;
+    margin: 1px 2px 1px 0px;
+    transition: 0.5s;
+    cursor:pointer;
 }
 
 

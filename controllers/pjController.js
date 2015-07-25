@@ -16,11 +16,16 @@
     function pjController(ficha){
         var vm = this;
 
-        vm.datosPj=ficha.fichaVacia();
+        //vm.datosPj=ficha.fichaVacia();
 
-        //ficha.getUser().then(function(data){
-        //   vm.usuario=data[0];
-        //});
+        ficha.getPlantilla().then(
+            function (data){
+
+                vm.datosPj=data;
+
+            }
+        );
+
 
         vm.cargarDatos = function() {
 

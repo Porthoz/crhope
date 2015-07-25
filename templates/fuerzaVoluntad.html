@@ -1,12 +1,20 @@
 <div class="bloque">
-{{matrizDeValores}}
-<table>
-    <th>{{modulo.nombre}}</th>
+<!--{{matrizDeValores}}-->
+    <h3>{{modulo.nombre}}</h3>
+    <table>
     <tr ng-repeat="n in matrizDeValores track by $index">
-        <td ng-if="modulo.rasgo[$index]==='circulo'"><div ng-repeat="i in matrizDeValores[$index] track by $index" class="{{i}}"></div></td>
-        <td ng-if="modulo.rasgo[$index]==='cuadrado'"><div ng-repeat="i in matrizDeValores[$index] track by $index" class="{{i}}"></div></td>
-        <td ng-if="modulo.rasgo[$index]==='texto'"><div>{{modulo.valor[$index]}}</div></td>
-    </tr>
 
+        <td ng-if="modulo.rasgo[$index]==='circulo'"><div ng-repeat="i in matrizDeValores[$index] track by $index" class="circulo {{i}}"></div></td>
+        <td ng-if="modulo.rasgo[$index]==='cuadrado'"><div ng-repeat="i in matrizDeValores[$index] track by $index" class="cuadrado {{i}}"></div></td>
+        <td ng-if="modulo.rasgo[$index]==='texto'"><div>{{modulo.valor[$index]}}</div></td>
+        <td ng-if="modulo.rasgo[$index]==='titulo'"><div><h3>{{modulo.valor[$index]}}</h3></div></td>
+        <td ng-if="modulo.rasgo[$index]==='reserva'"></td>
+    </tr>
+        <!--<input type="number" ng-model="numero"/>-->
+
+<div ng-repeat="n in generarReserva(numero) track by $index">
+    <span ng-if="(($index % 10)===0)"> <div class="linea"></div></span>
+    <div class="cuadrado"></div>
+</div>
 </table>
 </div>

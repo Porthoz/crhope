@@ -12,7 +12,7 @@
         <div><h3>{{modulo.nombre}}</h3></div>
 
         <table >
-            <tr ng-repeat="n in modulo.rasgo track by $index" ng-mouseenter="" ng-mouseleave="">
+            <tr ng-repeat="n in modulo.rasgo track by $index">
                 <td class="control" >
                     <span class="glyphicon glyphicon-trash oculto papelera " ng-class="visibilidad" ng-click="quitarRasgo($index)" ></span>
                     <span class="glyphicon glyphicon-plus oculto cruz " ng-class="visibilidad" ng-click="anhadirRasgo($index)"></span>

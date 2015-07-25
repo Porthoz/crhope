@@ -1,9 +1,0 @@
-<div class="bloque">
-<table>
-    <tr ng-repeat="n in modulo.rasgo track by $index">
-        <span ng-transclude></span>
-        <td>{{modulo.rasgo[$index]}}: </td>
-        <td><span editable-text="modulo.valor[$index]" buttons="no" blur="submit">{{modulo.valor[$index]||"_______"}}</span></td>
-    </tr>
-</table>
-</div>
