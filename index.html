@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="style/style.css"/>
+    <script src="/componentes/extras.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-
     <script src="controllers/pjController.js"></script>
     <script src="services/fichaProvider.js"></script>
     <script src="directives/rasgoTopo.js"></script>
     <script src="directives/rasgoGeneracion.js"></script>
-    <script src="directives/rasgoEtiquetas.js"></script>
-    <script src="directives/fuerzaVoluntad.js"></script>
+    <!--<script src="directives/rasgoEtiquetas.js"></script>-->
+    <!--<script src="directives/fuerzaVoluntad.js"></script>-->
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link href="style/xeditable.css" rel="stylesheet">
@@ -20,6 +20,7 @@
 </head>
 
 <body ng-app="crhope">
+
 
 
 <div style="" ng-controller="pjController as ctrl">
@@ -53,10 +54,10 @@
 
 <!--</div>-->
 
-
+{{ctrl.maximo}}
     <div class="hojaPersonaje">
         <h1>Ficha de PJ</h1>
-        <generacion ficha="ctrl.datosPj"></generacion>
+        <generacion generacion="ctrl.datosPj.generacion" maximo="ctrl.maximo"></generacion>
         <!--<div>-->
             <!--<texto-editable modulo="ctrl.datosPj.modulos[0]"> </texto-editable>-->
             <!--<texto-editable modulo="ctrl.datosPj.modulos[1]"> </texto-editable>-->
@@ -65,8 +66,8 @@
 
         <div class="linea">
             <h3>Atributos</h3>
-            <topos  modulo="ctrl.datosPj.modulos[3]"></topos>
-            <!--<topos modulo="ctrl.datosPj.modulos[4]" ></topos>-->
+            <topos  modulo="ctrl.datosPj.modulos[3]" maximo="ctrl.maximo||5"></topos>
+            <topos modulo="ctrl.datosPj.modulos[4]" maximo="5" ></topos>
             <!--<topos modulo="ctrl.datosPj.modulos[5]"></topos>-->
         </div>
         <!--<div class="linea">-->

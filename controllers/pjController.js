@@ -11,7 +11,7 @@
             editableOptions.theme = 'bs3'; // bootstrap3. También puede ser 'bs2', 'default'
         });
 
-
+    //angular.reloadWithDebugInfo();
  //Función pjController
     function pjController(ficha){
         var vm = this;
@@ -25,7 +25,7 @@
 
             }
         );
-
+        //vm.maximo=6;
 
         vm.cargarDatos = function() {
 
@@ -37,7 +37,12 @@
         };
 
         vm.reset = function() {
-            vm.datosPj=ficha.fichaVacia();
+            ficha.getPlantilla().then(
+                function (data){
+
+                    vm.datosPj=data;
+
+                })
         };
 
 

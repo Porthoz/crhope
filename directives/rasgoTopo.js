@@ -13,144 +13,114 @@
 
     function rasgoTopos() {
 
+        var moduloInicial={
+            "nombre":"",
+            "rasgo":[""],
+            "valor":[0],
+
+            "bloqueado":{"valor":true,"editable":false},
+        };
+
+        var marked ='topo marcado';
+        var unmarked = 'topo desmarcado';
+
+        function Controller ($scope){
+
+            var vm =$scope; // Todo mas clarito
+
+            vm.modulo=moduloInicial;
+            vm.bloqueado= false;
+            vm.matrizDeValores =[];
+            vm._maximo=5;
+
+
+
+            Object.defineProperty($scope,
+                "maximo",{
+                    enumerable:true,
+                    configurable:false,
+                    get:function(){
+                        //console.log('estoy leyendo: '+this._maximo);
+                        return this._maximo;
+                    },
+                    set:function(val){
+                        this._maximo=val;
+                        this.actualizar();
+                        console.log(val);
+                    }
+                }
+            );
+
+            this.bloquear =function(){
+                vm.bloqueado =true
+            };
+
+
+            //Añade un rasgo al módulo y rellena la matriz
+            vm.anhadirRasgo = function (n) {
+                if (n === undefined){
+                    vm.modulo.rasgo.push("");
+                    vm.modulo.valor.push(0)
+                }else {
+                    vm.modulo.rasgo.splice(n,0,'');
+                    vm.modulo.valor.splice(n,0, 0);
+                }
+            };
+
+            //quita un rasgo del módulo
+            vm.quitarRasgo = function (n){
+                vm.modulo.rasgo.splice(n,1);
+                vm.modulo.valor.splice(n,1);
+            };
+
+
+            // Que estoy pulsando??
+            vm.alerta = function (msg){
+                console.log(msg);
+            };
+
+            //Método para asignar valor a un rasgo
+            vm.asignarValor =function (rasgo,valor){
+
+                if (valor===(vm.modulo.valor[rasgo]-1)){
+                    valor=-1;
+                }
+                vm.modulo.valor[rasgo]=valor+1;
+
+            };
+
+            //Actualiza la matriz de puntos para que represente los valores cuando estos sean modificados.
+            vm.actualizar = function(){
+                for (var v=0;v<vm.modulo.rasgo.length;v++){
+                    vm.matrizDeValores[v] = [];
+                    for (var i=0;i<vm.maximo;i++){
+                        if (vm.modulo.valor[v]>i){
+                            vm.matrizDeValores[v].push(marked)
+                        }else{
+                            vm.matrizDeValores[v].push(unmarked);
+                        }
+
+                    }
+                }
+                console.log('estoy actualizando')
+            };
+
+
+
+            //watches sobre max para actualizar la matriz de vectores
+
+            $scope.$watch(function($scope){return $scope.modulo.valor}, vm.actualizar,true);
+
+
+        }
 
         return {
             restrict: 'E',
             scope:{
-                modulo:'='
-                //max:'='
+                modulo:'=',
+                maximo:'='
             },
-            controller:function ($scope){
-
-                var marked ='topo marcado';
-                var unmarked = 'topo desmarcado';
-
-                var vm =$scope; // Todo mas clarito
-                //vm.visibilidad =false;
-
-                vm.modulo={
-                    "nombre":"",
-                    "rasgo":[""],
-                    "valor":[0],
-                    "maximo":{"valor":5,"editable":true},
-                    "bloqueado":{"valor":true,"editable":false},
-                   };
-
-                vm.bloqueado= false;
-                vm.matrizDeValores =[];
-
-                this.bloquear =function(){
-                    vm.bloqueado =true
-                };
-
-                vm.generarMatriz = function (valor,max) {
-                    var matriz=[];
-
-                    for (var i=0; i<valor.length;i++){
-                        matriz[i]=[];
-
-                        for (var j=0;j<max;j++){
-                            if (j<valor[i]){matriz[i][j]=marked}
-
-                            else{matriz[i][j]=unmarked}
-                        }
-                    }
-                    return matriz;
-                };
-                console.log(vm.generarMatriz([1,3,2],7));
-
-                //Añade un rasgo al módulo y rellena la matriz
-                vm.anhadirRasgo = function (n) {
-                    if (n === undefined){
-                        vm.modulo.rasgo.push("");
-                        vm.modulo.valor.push(0)
-                    }else {
-                        vm.modulo.rasgo.splice(n,0,'');
-                        vm.modulo.valor.splice(n,0, 0);
-                    }
-
-
-                };
-
-                //quita un rasgo del módulo
-                vm.quitarRasgo = function (n){
-                    vm.modulo.rasgo.splice(n,1);
-                    vm.modulo.valor.splice(n,1);
-                };
-
-
-                // Que estoy pulsando??
-                vm.alerta = function (msg){
-                    console.log(msg);
-                };
-
-                //Método para asignar valor a un rasgo
-                vm.asignarValor =function (rasgo,valor){
-
-                    if (valor===(vm.modulo.valor[rasgo]-1)){
-                        valor=-1;
-                    }
-                    var r = rasgo;
-                    vm.modulo.valor[rasgo]=valor+1;
-                    for (var i=0;i<vm.matrizDeValores[r].length;i++){
-                        if (i<=valor){
-                            vm.matrizDeValores[r][i]=marked;
-                        } else{
-                            vm.matrizDeValores[r][i]=unmarked;
-                        }
-                    }
-                };
-
-                //Actualiza la matriz de puntos para que represente los valores cuando estos sean modificados.
-                vm.actualizar = function(){
-                    for (var v=0;v<vm.modulo.rasgo.length;v++){
-                        vm.matrizDeValores[v] = [];
-                        for (var i=0;i<vm.modulo.maximo.valor;i++){
-                            if (vm.modulo.valor[v]>i){
-                                vm.matrizDeValores[v].push(marked)
-                            }else{
-                                vm.matrizDeValores[v].push(unmarked);
-                            }
-
-                        }
-                    }
-                };
-
-                // método para actualizar el tamaño de la matriz cuando se cambia de generación.
-                vm.ajustarMatriz=function(){
-
-                    for (var i =0; vm.matrizDeValores[i]; i++){
-                        ajustarVector(i);
-                    }
-
-                    function ajustarVector (v){
-
-                        if (vm.max!==null){
-                            for (var i=0;vm.matrizDeValores[v].length<vm.max;i++){
-                                anhadirPunto(v);
-                            }
-                            for (var m=0;vm.matrizDeValores[v].length>vm.max;m++){
-                                quitarPunto(v);
-                            }
-                        }
-
-                        function anhadirPunto(n){
-                            vm.matrizDeValores[n].push(unmarked);
-                        }
-
-                        function quitarPunto(n){
-                            if (vm.matrizDeValores[n].length>1){
-                                vm.matrizDeValores[n].pop();
-                            }
-                        }
-                    }
-
-                };
-
-                //watches sobre max para actualizar la matriz de vectores
-                //$scope.$watch(function(){return vm.modulo;},vm.actualizar, vm.ajustarMatriz);
-                $scope.$watch(function(){return vm.modulo.valor;},vm.actualizar);
-            },
+            controller:Controller,
             templateUrl:'templates/rasgoTopo.html'
 
         };
@@ -165,8 +135,6 @@
             }
         }
     }
-
-
 
 
 })(window.angular);
