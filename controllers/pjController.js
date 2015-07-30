@@ -25,7 +25,7 @@
 
             }
         );
-        //vm.maximo=6;
+
 
         vm.cargarDatos = function() {
 
