@@ -10,7 +10,7 @@
     <script src="services/fichaProvider.js"></script>
     <script src="directives/rasgoTopo.js"></script>
     <script src="directives/rasgoGeneracion.js"></script>
-    <!--<script src="directives/rasgoEtiquetas.js"></script>-->
+    <script src="directives/rasgoEtiquetas.js"></script>
     <!--<script src="directives/fuerzaVoluntad.js"></script>-->
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
@@ -55,19 +55,20 @@
 <!--</div>-->
 
 {{ctrl.maximo}}
+
     <div class="hojaPersonaje">
         <h1>Ficha de PJ</h1>
         <generacion generacion="ctrl.datosPj.generacion" maximo="ctrl.maximo"></generacion>
-        <!--<div>-->
-            <!--<texto-editable modulo="ctrl.datosPj.modulos[0]"> </texto-editable>-->
-            <!--<texto-editable modulo="ctrl.datosPj.modulos[1]"> </texto-editable>-->
-            <!--<texto-editable modulo="ctrl.datosPj.modulos[2]"><generacion ficha="ctrl.datosPj"></generacion> </texto-editable>-->
-        <!--</div>-->
+        <div>
+            <etiqueta modulo="ctrl.datosPj.modulos[0]"> </etiqueta>
+            <etiqueta modulo="ctrl.datosPj.modulos[1]"> </etiqueta>
+            <etiqueta modulo="ctrl.datosPj.modulos[2]"> </etiqueta>
+        </div>
 
         <div class="linea">
             <h3>Atributos</h3>
-            <topos  modulo="ctrl.datosPj.modulos[3]" maximo="ctrl.maximo||5"></topos>
-            <topos modulo="ctrl.datosPj.modulos[4]" maximo="5" ></topos>
+            <topos modulo="ctrl.datosPj.modulos[3]" maximo="ctrl.maximo" bloqueado></topos>
+            <topos modulo="ctrl.datosPj.modulos[4]" maximo="ctrl.maximo"  ></topos>
             <!--<topos modulo="ctrl.datosPj.modulos[5]"></topos>-->
         </div>
         <!--<div class="linea">-->

@@ -7,7 +7,7 @@
     'use strict'; //nos ponemos serios
 
     angular.module('crhope')
-        .directive('bloqueo',toposBloquear)
+        .directive('bloqueado',toposBloquear)
         .directive('topos',rasgoTopos);
 
 
@@ -33,6 +33,10 @@
             vm.matrizDeValores =[];
             vm._maximo=5;
 
+            this.bloquear =function(){
+                vm.bloqueado =true
+            };
+
 
 
             Object.defineProperty($scope,
@@ -51,9 +55,8 @@
                 }
             );
 
-            this.bloquear =function(){
-                vm.bloqueado =true
-            };
+
+
 
 
             //Añade un rasgo al módulo y rellena la matriz
@@ -132,6 +135,7 @@
             require:'topos',
             link:function (scope, elem, attrb, toposCtrl){
                 toposCtrl.bloquear();
+                console.log(attrb);
             }
         }
     }

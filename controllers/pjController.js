@@ -11,7 +11,7 @@
             editableOptions.theme = 'bs3'; // bootstrap3. También puede ser 'bs2', 'default'
         });
 
-    //angular.reloadWithDebugInfo();
+
  //Función pjController
     function pjController(ficha){
         var vm = this;

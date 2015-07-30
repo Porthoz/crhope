@@ -4,7 +4,7 @@
 (function (angular){
     'use strict';
     angular.module('crhope')
-        .directive('textoEditable',textoEditable);
+        .directive('etiqueta',textoEditable);
 
     function textoEditable(){
 
