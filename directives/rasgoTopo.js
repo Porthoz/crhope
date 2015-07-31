@@ -44,13 +44,11 @@
                     enumerable:true,
                     configurable:false,
                     get:function(){
-                        //console.log('estoy leyendo: '+this._maximo);
                         return this._maximo;
                     },
                     set:function(val){
                         this._maximo=val;
                         this.actualizar();
-                        console.log(val);
                     }
                 }
             );

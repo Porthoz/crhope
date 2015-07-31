@@ -10,59 +10,85 @@
 
     function fuerzaVoluntad(){
 
+        function Controller ($scope){
+            var marked="marcado";
+            var unmarked="desmarcado";
+            var vm =$scope;
+
+            Object.defineProperty($scope,
+                "temporal",{
+                    enumerable:true,
+                    configurable:false,
+                    get:function(){
+                        return this._temporal;
+                    },
+                    set:function(val){
+                        if (val <= this.permanente){
+                            this._temporal=val;
+                            this.arrayTemporal=generarVector(val);
+                        }
+
+                    }
+                }
+            );
+
+            Object.defineProperty($scope,
+                "permanente",{
+                    enumerable:true,
+                    configurable:false,
+                    get:function(){
+                        return this._permanente;
+                    },
+                    set:function(val){
+                        this._permanente=val;
+                        this.arrayPermanente=generarVector(val);
+
+                        if (this.temporal > val){
+                            this.arrayTemporal=generarVector(val);
+                        }
+                    }
+                }
+            );
+
+            var generarVector =function(valor){
+                var temp=[];
+                for (var i=0; i<10;i++){
+                    if (valor>i) {temp.push(marked)}
+                    else{temp.push(unmarked)}
+                }
+                console.log('estoy en generarTemporal')
+                return temp;
+
+            };
+
+            vm.nombre="Fuerza de Voluntad";
+            vm._temporal=3;
+            vm._permanente=6;
+            vm.arrayTemporal = generarVector(vm.temporal);
+            vm.arrayPermanente = generarVector(vm.permanente);
+
+            vm.setTemporal= function (val) {
+                vm.temporal=val;
+            };
+
+            vm.setPermanente= function (val) {
+                vm.permanente=val;
+            };
+
+
+
+        }
+
         return {
             restrict:'E',
             scope:{
-                modulo:'='
+                temporal:'=',
+                permanente:'='
             },
-            controller: function($scope){
-                var marked="marcado";
-                var unmarked="desmarcado";
-                var vm =$scope;
-                //vm.numero= 29;
-                //
-                //vm.getNumero =function(num){
-                //    return new Array(num);
-                //};
-                //
-                //vm.generarReserva= function(num){
-                //    switch (num){
-                //        case(7):
-                //            return new Array(20);
-                //        default:
-                //            return new Array(10);
-                //    }
-                //
-                //};
-
-                vm.matrizDeValores=[];
-
-                vm.actualizar = function(){
-                    for (var v=0;v<vm.modulo.rasgo.length;v++){
-                        if (vm.modulo.rasgo[v]==='texto'){ vm.matrizDeValores[v]=null; console.log('es texto')}
-                        else{
-                            vm.matrizDeValores[v] = [];
-                            for (var i=0;i<vm.modulo.maximo.valor;i++){
-                                if (vm.modulo.valor[v]>i){
-                                    vm.matrizDeValores[v].push(marked)
-                                }else{
-                                    vm.matrizDeValores[v].push(unmarked);
-                                }
-
-                            }
-                        }
-
-
-                    }
-                };
-
-                $scope.$watch(function(){return vm.modulo;},$scope.actualizar);
-
-
-            },
+            controller: Controller,
             templateUrl:'templates/fuerzaVoluntad.html'
 
-        }
+        };
     }
 
-})(angular);
+})(window.angular);

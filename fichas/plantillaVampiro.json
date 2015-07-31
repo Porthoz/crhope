@@ -49,8 +49,8 @@
     },
     {
       "nombre":"Fuerza de voluntad",
-      "rasgo":["circulo","cuadrado","titulo","circulo"],
-      "valor":[5,7,"Senda",6],
+      "temporal":7,
+      "permanente":9,
       "maximo":{"valor":10,"editable":false},
       "bloqueado":{"valor":false,"editable":true},
       "tipo":"fuerza-voluntad"
