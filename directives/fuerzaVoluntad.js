@@ -6,11 +6,11 @@
     'use strict';
 
     angular.module('crhope')
-        .directive('fuerzaVoluntad',fuerzaVoluntad);
+        .directive('fuerzaVoluntad',['topos',fuerzaVoluntad]);
 
     function fuerzaVoluntad(){
 
-        function Controller ($scope){
+        function Controller ($scope,topos){
             var marked="marcado";
             var unmarked="desmarcado";
             var vm =$scope;
@@ -23,10 +23,10 @@
                         return this._temporal;
                     },
                     set:function(val){
-                        if (val <= this.permanente){
+
                             this._temporal=val;
-                            this.arrayTemporal=generarVector(val);
-                        }
+                            this.arrayTemporal=topos.generarVector(val);
+
 
                     }
                 }
@@ -41,38 +41,41 @@
                     },
                     set:function(val){
                         this._permanente=val;
-                        this.arrayPermanente=generarVector(val);
+                        this.arrayPermanente=topos.generarVector(val);
 
                         if (this.temporal > val){
-                            this.arrayTemporal=generarVector(val);
+                            this.temporal=val;
                         }
                     }
                 }
             );
 
-            var generarVector =function(valor){
-                var temp=[];
-                for (var i=0; i<10;i++){
-                    if (valor>i) {temp.push(marked)}
-                    else{temp.push(unmarked)}
-                }
-                console.log('estoy en generarTemporal')
-                return temp;
-
-            };
 
             vm.nombre="Fuerza de Voluntad";
-            vm._temporal=3;
-            vm._permanente=6;
-            vm.arrayTemporal = generarVector(vm.temporal);
-            vm.arrayPermanente = generarVector(vm.permanente);
+            vm._temporal=10;
+            vm._permanente=10;
+            //vm.arrayTemporal = generarVector(vm.temporal);
+            //vm.arrayPermanente = generarVector(vm.permanente);
 
             vm.setTemporal= function (val) {
-                vm.temporal=val;
+                if (val === vm.temporal){
+                    vm.temporal=0;
+                }else {
+
+                    if (val <= vm.permanente){
+                        vm.temporal=val;
+                    }
+                }
+
+
             };
 
             vm.setPermanente= function (val) {
-                vm.permanente=val;
+                if (val === vm.permanente){
+                    vm.permanente=0;
+                }else {
+                    vm.permanente=val;
+                }
             };
 
 
