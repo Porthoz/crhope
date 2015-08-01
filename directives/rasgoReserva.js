@@ -5,18 +5,20 @@
 
     function reserva (){
 
+
+
         function Controller($scope,topos){
             var vm = $scope;
 
-            vm._generacion=13;
-            vm._valor=0;
-            vm.generacion=13;
-            vm.valor=0;
-            vm.reserva=topos.generarReserva(vm.valor,vm.generacion);
+            vm._generacion=vm.generacion;
+            vm._valor=vm.valor;
+            vm.reserva=topos.generarReserva(vm.generacion,vm.valor);
+            vm.bloqueado=false;
 
             Object.defineProperties($scope,
                 {
                     'generacion': {
+
                         enumerable: true,
                         configurable: false,
                         get: function () {
@@ -26,6 +28,9 @@
 
                             this._generacion = val;
                             this.reserva = topos.generarReserva(val,this.valor);
+                            if (this.reserva.length<this.valor){
+                                this.valor=this.reserva.length;
+                            }
                             console.log('generando reserva, generacion');
 
                         }
@@ -48,6 +53,7 @@
 
                     }
                 });
+
             vm.setValor=function (val){
                 if (vm.valor===val){
                     vm.valor=0;
@@ -65,7 +71,9 @@
             restrict:'E',
             controller:Controller,
             scope:{
-                generacion:'='
+                generacion:'=',
+                valor:'='
+
             },
             templateUrl:'templates/rasgoReserva.html'
         }

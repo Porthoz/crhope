@@ -30,7 +30,8 @@
             vm.datosPj=ficha.getPlantilla();
         };
 
-
+        vm.generacion=7;
+        vm.numero=5;
 
 
 

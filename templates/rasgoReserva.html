@@ -1,8 +1,20 @@
-<div class="bloque">
+<div class="bloque" ng-mouseenter="visibilidad='visible'" ng-mouseleave="visibilidad='oculto'" ng-switch on="bloqueado">
+
+    <span class="glyphicon glyphicon-lock oculto" ng-class="visibilidad" ng-click="bloqueado=bloqueado===true?false:true"></span>
     <h3>Reserva de Sangre</h3>
-    {{valor}}
-    <span ng-repeat="n in reserva track by $index">
-        <span ng-if="(($index % 10)===0)"><div class="linea"></div></span>
-        <span class="cuadrado {{n}}" ng-click="setValor($index+1)"></span>
-    </span>
+    <div ng-switch-when="false">
+    <!--Valor:{{valor}}Generacion:{{generacion}}-->
+        <span ng-repeat="n in reserva track by $index">
+            <span ng-if="(($index % 10)===0)"><div class="linea"></div></span>
+            <span class="cuadrado {{n}}" ng-click="setValor($index+1)"></span>
+        </span>
+    </div>
+    <div ng-switch-when="true">
+        <span ng-repeat="n in reserva track by $index">
+            <span ng-if="(($index % 10)===0)"><div class="linea"></div></span>
+            <span class="cuadrado {{n}}"></span>
+        </span>
+    </div>
+
+
 </div>

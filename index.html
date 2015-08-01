@@ -28,7 +28,7 @@
 
 
 <div style="" ng-controller="pjController as ctrl">
-    <div style="display: non;">
+    <div style="display: none;">
 
         <ul>
             <li ng-repeat="rasgos in ctrl.datosPj.modulos[3]"> {{rasgos}}</li>
@@ -60,11 +60,9 @@
 
     <div class="hojaPersonaje">
         <h1>Ficha de PJ</h1>
+        {{ctrl.generacion}}
         <generacion generacion="ctrl.generacion" maximo="5"></generacion>
-
-
-
-            <reserva generacion="ctrl.generacion"></reserva>
+        <reserva generacion="ctrl.generacion" valor="ctrl.numero"></reserva>
 
         </div>
 
