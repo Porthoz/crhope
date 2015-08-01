@@ -54,6 +54,15 @@
       "maximo":{"valor":10,"editable":false},
       "bloqueado":{"valor":false,"editable":true},
       "tipo":"fuerza-voluntad"
+    },
+
+    {
+      "nombre":"Senda",
+      "senda":"Humanidad",
+      "valor":7,
+      "maximo":{"valor":10,"editable":false},
+      "bloqueado":{"valor":false,"editable":true},
+      "tipo":"Senda"
     }
   ]
 }

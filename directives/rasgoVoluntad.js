@@ -6,7 +6,7 @@
     'use strict';
 
     angular.module('crhope')
-        .directive('fuerzaVoluntad',['topos',fuerzaVoluntad]);
+        .directive('voluntad',['topos',fuerzaVoluntad]);
 
     function fuerzaVoluntad(){
 
