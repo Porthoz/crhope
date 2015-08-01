@@ -54,9 +54,6 @@
             );
 
 
-
-
-
             //Añade un rasgo al módulo y rellena la matriz
             vm.anhadirRasgo = function (n) {
                 if (n === undefined){
@@ -103,7 +100,6 @@
 
                     }
                 }
-                //console.log('estoy actualizando')
             };
 
 

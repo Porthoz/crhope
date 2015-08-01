@@ -16,16 +16,7 @@
     function pjController(ficha){
         var vm = this;
 
-        //vm.datosPj=ficha.fichaVacia();
-
-        ficha.getPlantilla().then(
-            function (data){
-
-                vm.datosPj=data;
-
-            }
-        );
-
+        vm.datosPj=ficha.getPlantilla();
 
         vm.cargarDatos = function() {
 
@@ -33,25 +24,14 @@
                 vm.datosPj = data;
             });
 
-            console.log('He cargado los datos');
         };
 
         vm.reset = function() {
-            ficha.getPlantilla().then(
-                function (data){
-
-                    vm.datosPj=data;
-
-                })
+            vm.datosPj=ficha.getPlantilla();
         };
 
 
-        vm.bloqueo = function() {
 
-            for (var i =0; i < vm.datosPj.modulos.length;i++){
-
-            }
-        }
 
 
 

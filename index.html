@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="style/style.css"/>
-    <script src="/componentes/extras.js"></script>
+    <!--<script src="/componentes/extras.js"></script>-->
     <script src="bower_components/angular/angular.js"></script>
     <script src="controllers/pjController.js"></script>
     <script src="services/fichaProvider.js"></script>
@@ -15,6 +15,7 @@
     <script src="directives/fichaVampiro.js"></script>
     <script src="directives/rasgoVoluntad.js"></script>
     <script src="directives/rasgoSenda.js"></script>
+    <script src="directives/rasgoReserva.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link href="style/xeditable.css" rel="stylesheet">
@@ -41,7 +42,7 @@
 
      </div>
 
-<ficha-vampiro ficha="ctrl.datosPj"></ficha-vampiro>
+<!--<ficha-vampiro ng-if="ctrl.datosPj!=null" ficha="ctrl.datosPj"></ficha-vampiro>-->
 
 <!--<fuerza-voluntad modulo="ctrl.datosPj.modulos[3]"></fuerza-voluntad>-->
 
@@ -57,7 +58,19 @@
 
 <!--</div>-->
 
+    <div class="hojaPersonaje">
+        <h1>Ficha de PJ</h1>
+        <generacion generacion="ctrl.generacion" maximo="5"></generacion>
 
+
+
+            <reserva generacion="ctrl.generacion"></reserva>
+
+        </div>
+
+
+    </div>
+</div>
 
 
 

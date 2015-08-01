@@ -1,0 +1,8 @@
+<div class="bloque">
+    <h3>Reserva de Sangre</h3>
+    {{valor}}
+    <span ng-repeat="n in reserva track by $index">
+        <span ng-if="(($index % 10)===0)"><div class="linea"></div></span>
+        <span class="cuadrado {{n}}" ng-click="setValor($index+1)"></span>
+    </span>
+</div>
