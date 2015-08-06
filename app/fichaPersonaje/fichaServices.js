@@ -2,25 +2,22 @@
  * Created by porthos on 31/07/15.
  */
 (function (angular){
-    angular.module('crhope')
-        .factory('topos',topos);
+    angular.module('crhope.fichaPersonaje')
+        .factory('fichaServices',topos);
 
     function topos(){
+
         var marked="marcado";
         var unmarked="desmarcado";
         var toposFactory={};
 
-        toposFactory.generarVector= function (valor) {
-            var temp=[];
-            for (var i=0; i<10;i++){
-                if (valor>i) {temp.push(marked)}
-                else{temp.push(unmarked)}
-            }
+        toposFactory.generarPuntos=generarPuntos; //genera un vector de puntos marcado o desmarcado según valor
+        toposFactory.generarReserva = generarReserva; //genera un vector
 
-            return temp;
-        };
 
-        toposFactory.generarReserva = function (generacion,valor){
+
+        //////////
+        function generarReserva (generacion,valor){
             var max=0;
             var vector=[];
             switch (generacion) {
@@ -71,7 +68,21 @@
             return vector;
 
 
-        };
+        }
+
+
+        function generarPuntos(valor) {
+            var temp=[];
+            for (var i=0; i<10;i++){
+                if (valor>i) {temp.push(marked)}
+                else{temp.push(unmarked)}
+            }
+
+            return temp;
+        }
+
+
+
         return toposFactory;
     }
 

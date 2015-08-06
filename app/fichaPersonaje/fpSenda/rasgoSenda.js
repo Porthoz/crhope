@@ -21,14 +21,14 @@
                     },
                     set: function (val) {
                         this._valor =val;
-                        this.vectorSenda=topos.generarVector(val);
+                        this.vectorSenda=topos.generarPuntos(val);
                     }
 
                 });
             
             vm.nombre='Senda';
             vm._valor=0;
-            vm.vectorSenda=topos.generarVector(vm.valor);
+            vm.vectorSenda=topos.generarPuntos(vm.valor);
 
             vm.setValor= function (val) {
                 if (val === vm.valor){
@@ -49,7 +49,7 @@
                 valor:'='
             },
             controller:Controller,
-            templateUrl:'templates/rasgoSenda.html'
+            templateUrl:'templates/fpSenda.html'
         }
     }
 

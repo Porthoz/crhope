@@ -1,5 +1,6 @@
 
 <div class="bloque" ng-mouseenter="visibilidad='visible'" ng-mouseleave="visibilidad='oculto'" ng-switch on="bloqueado">
+    <button ng-click="actualizar()">Actualizar</button>
 
     <div style="float:left; cursor:pointer;"><span class="glyphicon glyphicon-lock oculto" ng-class="visibilidad" ng-click="bloqueado=bloqueado===true?false:true"></span></div>
 
@@ -18,7 +19,7 @@
                     <span class="glyphicon glyphicon-plus oculto cruz " ng-class="visibilidad" ng-click="anhadirRasgo($index)"></span>
                 </td>
                 <td><div><span editable-text="modulo.rasgo[$index]" buttons="no" blur="submit">{{modulo.rasgo[$index]||"_______"}}</span></div></td>
-                <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDeValores[$index] track by $index" ng-click="asignarValor($parent.$index,($index))" ></div></td>
+                <td style="padding-left: 20px;"><div class="{{i}}" ng-repeat="i in matrizDeValores[$index] track by $index" ng-click="asignarValor($parent.$index,($index));actualizar()" ></div></td>
 
             </tr>
         </table>

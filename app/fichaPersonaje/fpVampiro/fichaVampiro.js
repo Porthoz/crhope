@@ -7,16 +7,17 @@
 
     function fichaVampiro(){
 
-        function Controller($scope){
-
-        }
         return{
             restricted:'E',
             scope:{
                 ficha:'='
             },
             controller:Controller,
-            templateUrl:'templates/fichaVampiro.html'
+            templateUrl:'fichaVampiro.html'
+
+        };
+
+        function Controller($scope){
 
         }
     }

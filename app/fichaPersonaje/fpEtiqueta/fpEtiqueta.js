@@ -37,7 +37,7 @@
 
 
             },
-            templateUrl:'templates/rasgoEtiquetas.html'
+            templateUrl:'fichaPersonaje/fpEtiqueta/fpEtiqueta.html'
 
         }
     }

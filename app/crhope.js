@@ -4,7 +4,10 @@
 
 (function (angular){
 
-    angular.module('crhope',["xeditable"])
+    angular.module('crhope',[
+        'crhope.fichaPersonaje',
+        'crhope.core'
+    ])
 
         .controller ('pjController', ['ficha',pjController])
         .run (function(editableOptions) {
@@ -31,7 +34,16 @@
         };
 
         vm.generacion=7;
-        vm.numero=5;
+        vm.numero=6;
+        vm.numero2=6;
+        vm.moduloPrueba={
+            "nombre":"Físicos",
+            "rasgo":["Fuerza","Destreza","Resistencia"],
+            "valor":[1,1,1],
+            "maximo":{"valor":5,"editable":true},
+            "bloqueado":{"valor":false,"editable":true},
+            "tipo":"topos"
+        }
 
 
 

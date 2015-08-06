@@ -1,34 +1,22 @@
-/**
- * Created by porthos on 8/05/15.
- */
-
 (function(angular){
 
-    'use strict'; //nos ponemos serios
+    'use strict';
 
-    angular.module('crhope')
+    angular.module('crhope.fichaPersonaje')
         .directive('bloqueado',toposBloquear)
-        .directive('topos',rasgoTopos);
+        .directive('fpPuntos',rasgoTopos);
 
 
     function rasgoTopos() {
-
-        var moduloInicial={
-            "nombre":"",
-            "rasgo":[""],
-            "valor":[0],
-
-            "bloqueado":{"valor":true,"editable":false},
-        };
 
         var marked ='topo marcado';
         var unmarked = 'topo desmarcado';
 
         function Controller ($scope){
 
-            var vm =$scope; // Todo mas clarito
+            var vm =$scope; //
 
-            vm.modulo=moduloInicial;
+            //vm.modulo=moduloInicial;
             vm.bloqueado= false;
             vm.matrizDeValores =[];
             vm._maximo=5;
@@ -103,10 +91,11 @@
             };
 
 
-
-            //watches sobre max para actualizar la matriz de vectores
-
-            $scope.$watch(function($scope){return $scope.modulo.valor}, vm.actualizar,true);
+            //$scope.$watch(function($scope){return $scope.modulo.valor}, vm.actualizar,true);
+            $scope.$watch('vm.modulo.valor',function (viejo,nuevo){
+                    console.log('estoy en el watch');
+                    vm.actualizar();
+                },true);
 
 
         }
@@ -117,8 +106,14 @@
                 modulo:'=',
                 maximo:'='
             },
+            //bindToController:true,
+            //bindToController:{
+            //    modulo:'=',
+            //    maximo:'='
+            //},
             controller:Controller,
-            templateUrl:'templates/rasgoTopo.html'
+            controllerAs:'vm',
+            templateUrl:'fichaPersonaje/fpPuntos/fpPuntos.html'
 
         };
     }

@@ -1,18 +1,26 @@
 (function(angular){
     'use strict';
-    angular.module('crhope')
-        .directive('reserva',['topos',reserva]);
+    angular.module('crhope.fichaPersonaje')
+        .directive('fpReserva',['fichaServices',reserva]);
 
     function reserva (){
 
+        return{
+            restrict:'E',
+            controller:Controller,
+            scope:{
+                generacion:'=',
+                valor:'='
+            },
+            templateUrl:'fichaPersonaje/fpReserva/fpReserva.html'
+        };
 
-
-        function Controller($scope,topos){
+        function Controller($scope,fichaServices){
             var vm = $scope;
 
             vm._generacion=vm.generacion;
             vm._valor=vm.valor;
-            vm.reserva=topos.generarReserva(vm.generacion,vm.valor);
+            vm.reserva=fichaServices.generarReserva(vm.generacion,vm.valor);
             vm.bloqueado=false;
 
             Object.defineProperties($scope,
@@ -27,7 +35,7 @@
                         set: function (val) {
 
                             this._generacion = val;
-                            this.reserva = topos.generarReserva(val,this.valor);
+                            this.reserva = fichaServices.generarReserva(val,this.valor);
                             if (this.reserva.length<this.valor){
                                 this.valor=this.reserva.length;
                             }
@@ -46,7 +54,7 @@
                         set: function (val) {
 
                             this._valor = val;
-                            this.reserva = topos.generarReserva(this.generacion,val);
+                            this.reserva = fichaServices.generarReserva(this.generacion,val);
                             console.log('generando reserva, valor');
 
                         }
@@ -62,21 +70,9 @@
                     vm.valor=val;
                 }
             };
-
-
-
-
         }
-        return{
-            restrict:'E',
-            controller:Controller,
-            scope:{
-                generacion:'=',
-                valor:'='
 
-            },
-            templateUrl:'templates/rasgoReserva.html'
-        }
+
     }
 
 })(window.angular);
