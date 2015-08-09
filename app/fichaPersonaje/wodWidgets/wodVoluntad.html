@@ -1,0 +1,21 @@
+<div class="bloque">
+
+    <h3>{{vm.nombre}}</h3>
+    <!--{{vm.permanente}}:{{vm.temporal}}-->
+    <table>
+        <tr>
+            <td><span ng-repeat="n in vm.arrayTemporal track by $index" class="circulo {{n}}" ng-click="vm.setTemporal($index+1)"></span></td>
+        </tr>
+        <tr>
+            <td>
+                <span ng-repeat="n in vm.arrayPermanente track by $index" class="cuadrado {{n}}" ng-click="vm.setPermanente($index+1)"></span>
+            </td>
+        </tr>
+        <!--<input type="number" ng-model="numero"/>-->
+
+        <!--<div ng-repeat="n in generarReserva(numero) track by $index">-->
+        <!--<span ng-if="(($index % 10)===0)"> <div class="linea"></div></span>-->
+        <!--<div class="cuadrado"></div>-->
+        <!--</div>-->
+    </table>
+</div>

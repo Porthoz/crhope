@@ -6,11 +6,9 @@
     'use strict';
 
     angular.module('crhope.core',[
-        //propios
-        //'crhope.fichaPersonaje',
-
         //otros
-        'xeditable'
+        'xeditable',
+        'ui.router'
     ])
         .run (function(editableOptions) {
         editableOptions.theme = 'bs3'; // bootstrap3. También puede ser 'bs2', 'default'

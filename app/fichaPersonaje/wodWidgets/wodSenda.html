@@ -1,0 +1,9 @@
+<div class="bloque">
+    <!--<h3>{{nombre}}</h3>-->
+    <!--{{vm.senda}}:{{vm.valor}}-->
+    <table>
+        <tr><td><span editable-text="vm.senda" buttons="no" blur="submit">{{vm.senda||'_____________'}}</span></td></tr>
+        <tr><td><span ng-repeat="n in vm.vectorSenda track by $index" class="circulo {{n}}" ng-click="vm.setValor($index +1)"></span></td></tr>
+    </table>
+
+</div>

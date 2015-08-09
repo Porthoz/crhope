@@ -1,0 +1,54 @@
+<!--<div class="bloque">-->
+    <!--<h3>Valores de {{vm.modulo.nombre}}</h3>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="(key,val) in vm.modulo track by $index">{{key}} : {{val}}</li>-->
+        <!--<li>maximo: {{vm.maximo}}</li>-->
+
+    <!--</ul>-->
+    <!--&lt;!&ndash;{{vm.matrizDeValores}}&ndash;&gt;-->
+<!--</div>-->
+<div class="bloque" ng-mouseenter="vm.visibilidad='visible'" ng-mouseleave="vm.visibilidad='oculto'" ng-switch on="vm.bloqueado">
+    <!--<button ng-click="vm.actualizarMatriz()">Actualizar</button>-->
+
+    <div style="float:left; cursor:pointer;"><span class="glyphicon glyphicon-lock oculto" ng-class="vm.visibilidad" ng-click="vm.bloqueado=vm.bloqueado===true?false:true"></span></div>
+
+    <div ng-switch-when="false">
+
+        <div class="accionMas oculto" ng-class="vm.visibilidad" ng-click="vm.addRasgo()">
+            <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </div>
+
+        <div><h3>{{vm.modulo.nombre}}</h3></div>
+
+        <table >
+            <tr ng-repeat="n in vm.modulo.rasgo track by $index">
+                <td class="control" >
+                    <span class="glyphicon glyphicon-trash oculto papelera " ng-class="vm.visibilidad" ng-click="vm.subsRasgo($index)" ></span>
+                    <span class="glyphicon glyphicon-plus oculto cruz " ng-class="vm.visibilidad" ng-click="vm.addRasgo($index)"></span>
+                </td>
+                <td><div><span editable-text="vm.modulo.rasgo[$index]" buttons="no" blur="submit">{{vm.modulo.rasgo[$index]||"_______"}}</span></div></td>
+                <td style="padding-left: 20px;"><div class="topo {{i}}" ng-repeat="i in vm.matrizDeValores[$index] track by $index" ng-click="vm.setValor($parent.$index,($index));vm.actualizarMatriz()" ></div></td>
+
+            </tr>
+        </table>
+
+    </div>
+
+    <div ng-switch-when="true">
+
+
+        <div><h3>{{vm.modulo.nombre}}</h3></div>
+
+        <table >
+            <tr ng-repeat="n in vm.modulo.rasgo track by $index">
+
+                <td><div><span>{{vm.modulo.rasgo[$index]||"_______"}}</span></div></td>
+                <td style="padding-left: 20px;"><div class="topo {{i}}" ng-repeat="i in vm.matrizDeValores[$index] track by $index"  ></div></td>
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+

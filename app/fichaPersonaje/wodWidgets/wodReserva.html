@@ -1,0 +1,24 @@
+<div class="bloque" ng-mouseenter="vm.visibilidad='visible'" ng-mouseleave="vm.visibilidad='oculto'" ng-switch on="vm.bloqueado">
+    <span class="glyphicon glyphicon-lock oculto" ng-class="vm.visibilidad" ng-click="vm.bloqueado=vm.bloqueado===true?false:true"></span>
+    <h3>Reserva de Sangre</h3>
+    <!--<p>-->
+        <!--<input type="number" ng-model="vm.maximo" ng-change="vm.actualizarModelo()"/>-->
+    <!--</p>-->
+    <!--<p>Maximo: {{vm.maximo}}</p>-->
+    <!--<p>Valor: {{vm.valor}}</p>-->
+    <div ng-switch-when="false">
+
+        <span ng-repeat="n in vm.cuadrados track by $index">
+            <span ng-if="(($index % 10)===0)"><div class="linea"></div></span>
+            <span class="cuadrado {{n}}" ng-click="vm.setValor($index+1)"></span>
+        </span>
+    </div>
+    <div ng-switch-when="true">
+        <span ng-repeat="n in vm.cuadrados track by $index">
+            <span ng-if="(($index % 10)===0)"><div class="linea"></div></span>
+            <span class="cuadrado {{n}}"></span>
+        </span>
+    </div>
+
+
+</div>

@@ -1,0 +1,40 @@
+<div class="bloque" ng-mouseenter="visibilidad='visible'" ng-mouseleave="visibilidad='oculto'" ng-switch on="bloqueado">
+
+    <div style="float:left; cursor:pointer;"><span class="glyphicon glyphicon-lock oculto" ng-class="visibilidad" ng-click="bloqueado=bloqueado===true?false:true"></span></div>
+
+    <div class="linea"></div>
+    <div ng-switch-when="false">
+        <div class="accionMas oculto" ng-class="visibilidad" ng-click="anhadirRasgo()">
+            <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </div>
+        <table>
+            <tr ng-repeat="n in modulo.rasgo track by $index">
+                <span ng-transclude></span>
+                <td class="control" >
+                    <span class="glyphicon glyphicon-trash oculto papelera " ng-class="visibilidad" ng-click="subRasgo($index)" ></span>
+                    <span class="glyphicon glyphicon-plus oculto cruz " ng-class="visibilidad" ng-click="anhadirRasgo($index)"></span>
+                </td>
+                <td> <span editable-text="modulo.rasgo[$index]" buttons="no" blur="submit">{{modulo.rasgo[$index]||"________"}}:</span> </td>
+                <td><span editable-text="modulo.valor[$index]" buttons="no" blur="submit" style="margin-left:20px;">{{modulo.valor[$index]||"_______"}}</span></td>
+
+
+            </tr>
+        </table>
+    </div>
+
+    <div ng-switch-when="true">
+        <table>
+            <tr ng-repeat="n in modulo.rasgo track by $index">
+                <span ng-transclude></span>
+
+                <td> <span style="font-weight:bold;">{{modulo.rasgo[$index]||"________"}}:</span> </td>
+                <td><span style="margin-left:20px;">{{modulo.valor[$index]||"_______"}}</span></td>
+
+
+            </tr>
+        </table>
+    </div>
+
+
+
+</div>

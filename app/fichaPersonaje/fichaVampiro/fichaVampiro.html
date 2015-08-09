@@ -1,0 +1,93 @@
+<div class="hojaPersonaje">
+    <h1>Ficha de PJ</h1>
+<!--<div class="bloque">-->
+   <!--<h3>Valores de vm.ficha</h3>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="(key,val) in vm.ficha track by $index">{{key}} : {{val}}</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+    <div class="bloque">
+        <div style="float:left; padding: 20px">
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><span editable-text="vm.ficha.nombre" buttons="no" blur="submit">{{vm.ficha.nombre||"__________"}}</span></td>
+                </tr>
+                <tr>
+                    <td>Jugador:</td>
+                    <td><span editable-text="vm.ficha.jugador" buttons="no" blur="submit">{{vm.ficha.jugador||"__________"}}</span></td>
+                </tr>
+                <tr>
+                    <td>Crónica:</td>
+                    <td><span editable-text="vm.ficha.cronica" buttons="no" blur="submit">{{vm.ficha.cronica||"__________"}}</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="float:left; padding: 20px">
+
+            <table>
+                <tr>
+                    <td>Naturaleza:</td>
+                    <td><span editable-text="vm.ficha.naturaleza" buttons="no" blur="submit">{{vm.ficha.naturaleza||"__________"}}</span></td>
+                </tr>
+                <tr>
+                    <td>Conducta:</td>
+                    <td><span editable-text="vm.ficha.conducta" buttons="no" blur="submit">{{vm.ficha.conducta||"__________"}}</span></td>
+                </tr>
+                <tr>
+                    <td>Concepto:</td>
+                    <td><span editable-text="vm.ficha.concepto" buttons="no" blur="submit">{{vm.ficha.concepto||"__________"}}</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="float:left; padding: 20px">
+
+            <table>
+                <tr>
+                    <td>Clan:</td>
+                    <td><span editable-text="vm.ficha.clan" buttons="no" blur="submit">{{vm.ficha.clan||"__________"}}</span></td>
+                </tr>
+                <tr>
+                    <td>Generacion:</td>
+                    <td><input type="number" max="14" min="3" ng-model="vm.ficha.generacion"/></td>
+                </tr>
+                <tr>
+                    <td>Refugio:</td>
+                    <td><span editable-text="vm.ficha.refugio" buttons="no" blur="submit">{{vm.ficha.refugio||"__________"}}</span></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="linea"></div>
+    <div>
+        <!--<wod-reserva maximo="vm.ficha.reserva.maximo" valor="vm.ficha.reserva.valor"></wod-reserva>-->
+        <wod-topos modulo="vm.ficha.fisicos" maximo="vm.ficha.limiteAtb"></wod-topos>
+        <wod-topos modulo="vm.ficha.sociales" maximo="vm.ficha.limiteAtb"></wod-topos>
+        <wod-topos modulo="vm.ficha.mentales" maximo="vm.ficha.limiteAtb"></wod-topos>
+    </div>
+    <div class="linea"></div>
+    <div>
+        <wod-topos modulo="vm.ficha.talentos" maximo="vm.ficha.limiteAtb"></wod-topos>
+        <wod-topos modulo="vm.ficha.tecnicas" maximo="vm.ficha.limiteAtb"></wod-topos>
+        <wod-topos modulo="vm.ficha.conocimientos" maximo="vm.ficha.limiteAtb"></wod-topos>
+    </div>
+    <div class="linea"></div>
+    <div>
+        <wod-topos modulo="vm.ficha.disciplinas" maximo="vm.ficha.limiteAtb"></wod-topos>
+        <wod-topos modulo="vm.ficha.trasfondos" maximo="vm.ficha.limiteAtb"></wod-topos>
+        <wod-topos modulo="vm.ficha.virtudes" maximo="5"></wod-topos>
+    </div>
+    <div class="linea"></div>
+    <!--<div class="bloque"></div>-->
+    <div class="container">
+        <wod-senda senda="vm.ficha.senda.nombre" valor="vm.ficha.senda.valor"></wod-senda>
+        <div class="linea"></div>
+        <wod-voluntad temporal="vm.ficha.voluntad.temporal" permanente="vm.ficha.voluntad.permanente"></wod-voluntad>
+        <div class="linea"></div>
+        <wod-reserva maximo="vm.ficha.reserva.maximo" valor="vm.ficha.reserva.valor"></wod-reserva>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="es">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="app/style/style.css"/>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+
+    <script src="app/crhope.module.js"></script>
+    <script src="app/core/core.module.js"></script>
+
+    <!--ficha de personaje-->
+    <script src="app/fichaPersonaje/fichaPersonaje.module.js"></script>
+    <script src="app/fichaPersonaje/wodWidgets/wodWidget.service.js"></script>
+    <script src="app/fichaPersonaje/fichaVampiro/fichaVampiro.js"></script>
+    <script src="app/fichaPersonaje/fichaVampiro/vampiro.model.js"></script>
+    <script src="app/fichaPersonaje/wodWidgets/wodTopos.js"></script>
+    <script src="app/fichaPersonaje/temp/wodGeneracion.js"></script>
+    <script src="app/fichaPersonaje/temp/wodEtiqueta.js"></script>
+    <script src="app/fichaPersonaje/wodWidgets/wodVoluntad.js"></script>
+    <script src="app/fichaPersonaje/wodWidgets/wodSenda.js"></script>
+    <script src="app/fichaPersonaje/wodWidgets/wodReserva.js"></script>
+
+    <!--Data module-->
+    <script src="app/core/dataservice.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link href="app/style/xeditable.css" rel="stylesheet">
+
+
+</head>
+
+<body ng-app="crhope">
+<ul class="dropdown-menu-right">
+    <li><a href="index.html">home</a></li>
+    <li><a ui-sref="ficha">ficha</a></li>
+</ul>
+
+<div class="container" ui-view></div>
+
+
+</body>
+</html>
