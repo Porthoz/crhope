@@ -1,0 +1,21 @@
+<div class="bloque" ng-mouseenter="vm.visibilidad='visible'" ng-mouseleave="vm.visibilidad='oculto'">
+
+    <div class="accionMas oculto" ng-class="vm.visibilidad" ng-click="vm.addMerito()">
+        <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </div>
+
+    <h3>Méritos y Defectos</h3>
+
+    <table>
+        <tr ng-repeat="n in vm.meritos track by $index">
+            <td class="control" >
+                <span class="glyphicon glyphicon-trash oculto papelera " ng-class="vm.visibilidad" ng-click="vm.subsRasgo($index)" ></span>
+                <span class="glyphicon glyphicon-plus oculto cruz " ng-class="vm.visibilidad" ng-click="vm.addMerito($index)"></span>
+            </td>
+            <td>
+                <span editable-text="vm.meritos[$index]" buttons="no" blur="submit">{{n||'__________'}}</span>
+            </td>
+        </tr>
+    </table>
+
+</div>

@@ -95,7 +95,7 @@
     //otra directiva
     function toposBloquear(){
         return{
-            require:'topos',
+            require:'wodTopos',
             link:function (scope, elem, attrb, toposCtrl){
                 toposCtrl.bloquear();
                 console.log(attrb);

@@ -90,7 +90,9 @@
                 "reserva":{
                     "maximo":21,
                     "valor":11
-                }
+                },
+                "meritos":["Feo (7pts)","Alegre (2pts)",""]
+
             }
 
 

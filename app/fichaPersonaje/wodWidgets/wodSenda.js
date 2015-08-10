@@ -1,9 +1,5 @@
-/**
- * Created by porthos on 31/07/15.
- */
-
 (function (angular){
-    angular.module('crhope')
+    angular.module('crhope.fichaPersonaje')
         .directive('wodSenda',['wwService',wodSenda]);
 
     function wodSenda(){
