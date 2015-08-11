@@ -4,16 +4,6 @@
     angular.module('crhope.fichaPersonaje')
         .directive('wodMeritos',wodMeritos);
 
-    //function wodMeritos(){
-    //    return {
-    //        restrict:'E',
-    //        scope:{
-    //            meritos:'='
-    //        },
-    //        templateUrl:'<div>Funciono</div>'
-    //    };
-    //}
-
     function wodMeritos(){
 
         return {
@@ -29,8 +19,8 @@
 
         function Controller(){
             var vm = this;
-
             vm.addMerito=addMerito;
+            vm.subsMerito=subsMerito;
 
    ////////////////////
 
@@ -40,6 +30,10 @@
                 }else {
                     vm.meritos.splice(n,0,'');
                 }
+            }
+
+            function subsMerito (n){
+                vm.meritos.splice(n,1);
             }
         }
     }

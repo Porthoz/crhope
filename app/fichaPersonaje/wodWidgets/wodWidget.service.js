@@ -6,12 +6,14 @@
 
         var marked="marcado";
         var unmarked="desmarcado";
-        var widgetService={};
 
-        widgetService.generarPuntos= generarPuntos; //genera un vector de puntos marcado o desmarcado según valor
-        widgetService.generarReserva = generarReserva; //genera un vector de la reserva de sangre.
-        widgetService.generarMatriz =generarMatriz; //genera una matriz de topos marked/unmarked
+        var service={
+        generarPuntos: generarPuntos, //genera un vector de puntos marcado o desmarcado según valor
+        generarReserva: generarReserva, //genera un vector de la reserva de sangre.
+        generarMatriz: generarMatriz //genera una matriz de topos marked/unmarked
+        };
 
+        return service;
 
         ///////////////////////
 
@@ -88,7 +90,7 @@
         }
 
 
-        return widgetService;
+
     }
 
 })(window.angular);

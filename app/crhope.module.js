@@ -8,12 +8,16 @@
         'crhope.fichaPersonaje',
         'crhope.core'
     ])
-        .config(function ($stateProvider,$urlRouterProvider){
+        .config(function ($stateProvider,$urlRouterProvider,$locationProvider){
             $stateProvider
                 .state('ficha',{
-                    url:'/ficha',
+                    url:'crhope/ficha',
                     template:'<ficha-vampiro></ficha-vampiro>'
-                })
+                });
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false
+            });
         });
 
 

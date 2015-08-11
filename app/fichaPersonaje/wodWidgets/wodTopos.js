@@ -4,8 +4,9 @@
 
     angular.module('crhope.fichaPersonaje')
         .directive('bloqueado',toposBloquear)
-        .directive('wodTopos',['wwService',wodTopos]);
+        .directive('wodTopos',wodTopos);
 
+    wodTopos.$inject=['wwService'];
 
     function wodTopos(wwService) {
 
@@ -95,10 +96,14 @@
     //otra directiva
     function toposBloquear(){
         return{
-            require:'wodTopos',
-            link:function (scope, elem, attrb, toposCtrl){
-                toposCtrl.bloquear();
-                console.log(attrb);
+            require:['^wodTopos'],
+            restrict:'AE',
+            //controller:function($scope){},
+
+            link:function (scope, elem, attrb, ctrls){
+                ctrls[0].bloquear();
+                //ctrls[1].bloquear();
+
             }
         }
     }

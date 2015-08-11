@@ -1,8 +1,9 @@
 (function(angular){
     'use strict';
     angular.module('crhope.fichaPersonaje')
-        .directive('wodReserva',['wwService',reserva]);
+        .directive('wodReserva',reserva);
 
+    reserva.$inject=['wwService'];
     function reserva (){
 
         return{
@@ -24,11 +25,9 @@
             vm.bloqueado=false;
             vm.setValor=setValor; //asigna un valor a la reserva de sangre. setValor(valor)
             vm.actualizarModelo=actualizarModelo; //genera un nuevo modelo de puntos para el DOM
+            vm.bloquear=bloquear;
 
         ////////////////////
-
-
-
 
             function setValor (val){
                 if (val<=vm.maximo){
@@ -65,9 +64,9 @@
                 });
         }
 
-
-
-
+        function bloquear(){
+            vm.bloqueado=true;
+        }
 
 
     }
