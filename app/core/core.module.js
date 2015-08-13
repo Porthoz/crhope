@@ -8,7 +8,8 @@
     angular.module('crhope.core',[
         //otros
         'xeditable',
-        'ui.router'
+        'ui.router',
+        'ui.bootstrap'
     ])
         .run (function(editableOptions) {
         editableOptions.theme = 'bs3'; // bootstrap3. También puede ser 'bs2', 'default'

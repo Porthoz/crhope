@@ -12,17 +12,22 @@
 </head>
 
 <body ng-app="crhope">
-<ul class="navbar navbar-default">
-    <li class="active"><a href="index.html">home</a></li>
-    <li><a ui-sref="ficha">ficha</a></li>
-</ul>
 
-<div class="container" ui-view></div>
+<div class="navbar navbar-default navbar-static-top">
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a  ui-sref="ficha">Ficha</a></li>
+    </ul>
+</div>
+
+<div class="container" ui-view="ficha">Aqui se va a cargar algo</div>
 
 
 <script src="bower_components/angular/angular.js"></script>
+<!--3 parties-->
 <script src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
 <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+<script src="node_modules/angular-ui-bootstrap/ui-bootstrap.js"></script>
 
 <script src="app/crhope.module.js"></script>
 <script src="app/core/core.module.js"></script>

@@ -92,7 +92,6 @@
         }
 
     }
-
     //otra directiva
     function toposBloquear(){
         return{

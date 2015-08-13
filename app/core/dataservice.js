@@ -6,20 +6,22 @@
         .factory('dataservice',['$http','$q',dataservice]);
 
     function dataservice($http,$q){
+        var vampiro={};
 
         var fichaFactory = {
+            getFicha:getFicha,
             getVampiro:getVampiro
         };
 
         return fichaFactory;
 
-        //fichaFactory.getFicha = function (){
-        //    var defferer = $q.defer();
-        //    $http.get('fichas/fichas.json').success(function (data){
-        //          defferer.resolve(data);
-        //        });
-        //    return defferer.promise;
-        //};
+       function getFicha(){
+            var defferer = $q.defer();
+            $http.get('data/data.json').success(function (data){
+                  defferer.resolve(data);
+                });
+            return defferer.promise;
+        }
 
         function getVampiro () {
             console.log('cargando plantilla...');

@@ -1,11 +1,15 @@
 (function(angular){
     angular.module('crhope.fichaPersonaje')
-        .factory('vampiro',['dataservice',vampiro]);
+        .factory('vampiro',['dataservice',Vampiro]);
 
-    function vampiro(dataservice){
+
+    function Vampiro(dataservice){
+        var dato='';
 
         return{
 
+            init:init,
+            getDato:getDato,
             getFicha:getFicha, //recupera la ficha de la BD
             calcularReserva:calcularReserva, //Calcula la reserva de sangre en funcion de la generación
             calcularLimiteAtb:calcularLimiteAtb //Calcula el límite de valor de atributos en función de la generación
@@ -15,6 +19,13 @@
 
         ///////////////////////
 
+        function init(d){
+            dato=d;
+        }
+
+        function getDato (){
+            return dato;
+        }
         function getFicha(){
             var ficha=dataservice.getVampiro();
             ficha.reserva.maximo=calcularReserva(ficha.generacion);
