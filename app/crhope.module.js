@@ -11,17 +11,18 @@
         .config(function ($stateProvider,$urlRouterProvider,$locationProvider){
             $stateProvider
                 .state('ficha',{
-                    url:'crhope/ficha',
+                    url:'/ficha',
                     views:{
                         'ficha':{
-                            template:'<ficha-vampiro></ficha-vampiro>'
-                        },
+                            templateUrl:'app/fichaPersonaje/fichaVampiro/fichaVampiro.html',
+                            controller:'fichavampiro as vm'
+                        }
 
                     }
                     //template:'<ficha-vampiro></ficha-vampiro>'
                 })
                 .state('home',{
-                    url:'crhope/',
+                    url:'/',
                     views:{
                         'ficha':{
                             template:'<div><spam class="alert-danger">Aquí va la ficha de PJ</spam></div>'

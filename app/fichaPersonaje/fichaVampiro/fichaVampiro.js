@@ -1,19 +1,10 @@
 (function (angular){
     angular.module('crhope')
-        .directive('fichaVampiro',fichaVampiro);
+        .controller('fichavampiro',FichaVampiroCtrl);
 
-    fichaVampiro.$inject=['vampiro'];
+    FichaVampiroCtrl.$inject=['vampiro'];
 
-    function fichaVampiro(){
 
-        return{
-            restricted:'E',
-            controller:FichaVampiroCtrl,
-            controllerAs:'vm',
-            bindToController:true,
-            templateUrl:'app/fichaPersonaje/fichaVampiro/fichaVampiro.html'
-
-        };
 
         function FichaVampiroCtrl(vampiro){
             var vm= this;
@@ -36,9 +27,5 @@
                 });
 
         }
-
-    }
-
-
 
 })(window.angular);
