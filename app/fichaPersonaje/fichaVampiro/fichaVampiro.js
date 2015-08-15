@@ -15,32 +15,30 @@
 
         };
 
-    }
+        function FichaVampiroCtrl(vampiro){
+            var vm= this;
+            vm.ficha = vampiro.ficha;
 
-    function FichaVampiroCtrl(vampiro){
-        var vm= this;
+            var _generacion= vm.ficha.generacion;
 
-        vm.ficha= vampiro.getFicha();
-        //vampiro.init('soy un dato inicializado en el controller');
-        console.log(vampiro.getDato());
+            Object.defineProperty(vm.ficha,
+                'generacion',{
+                    enumerable:true,
+                    configurable:false,
+                    get:function(){
+                        return _generacion
+                    },
+                    set:function(value){
+                        _generacion=value;
+                        vm.ficha.reserva.maximo=vampiro.calcularReserva(value);
+                        vm.ficha.limiteAtb=vampiro.calcularLimiteAtb(value);
+                    }
+                });
 
-
-        var _generacion= vm.ficha.generacion;
-
-        Object.defineProperty(vm.ficha,
-            'generacion',{
-                enumerable:true,
-                configurable:false,
-                get:function(){
-                    return _generacion
-                },
-                set:function(value){
-                    _generacion=value;
-                    vm.ficha.reserva.maximo=vampiro.calcularReserva(value);
-                    vm.ficha.limiteAtb=vampiro.calcularLimiteAtb(value);
-                }
-            });
+        }
 
     }
+
+
 
 })(window.angular);

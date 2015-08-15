@@ -16,12 +16,6 @@
                         'ficha':{
                             template:'<ficha-vampiro></ficha-vampiro>'
                         },
-                        resolve:
-                        {
-                        init:function(Vampiro){
-                            Vampiro.init()
-                        }
-                        }
 
                     }
                     //template:'<ficha-vampiro></ficha-vampiro>'

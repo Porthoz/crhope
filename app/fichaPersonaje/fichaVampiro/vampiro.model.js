@@ -4,32 +4,28 @@
 
 
     function Vampiro(dataservice){
-        var dato='';
+        var ficha=[];
+        init();
 
         return{
 
-            init:init,
-            getDato:getDato,
+            ficha:ficha,
             getFicha:getFicha, //recupera la ficha de la BD
             calcularReserva:calcularReserva, //Calcula la reserva de sangre en funcion de la generación
             calcularLimiteAtb:calcularLimiteAtb //Calcula el límite de valor de atributos en función de la generación
 
         };
-
-
         ///////////////////////
-
-        function init(d){
-            dato=d;
-        }
-
-        function getDato (){
-            return dato;
-        }
-        function getFicha(){
-            var ficha=dataservice.getVampiro();
+        function init(){
+            ficha=dataservice.getVampiro();
             ficha.reserva.maximo=calcularReserva(ficha.generacion);
             ficha.limiteAtb=calcularLimiteAtb(ficha.generacion);
+        }
+
+        function getFicha(){
+            //var ficha=dataservice.getVampiro();
+            //ficha.reserva.maximo=calcularReserva(ficha.generacion);
+            //ficha.limiteAtb=calcularLimiteAtb(ficha.generacion);
             return ficha;
         }
 
