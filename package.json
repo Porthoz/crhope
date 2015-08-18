@@ -6,10 +6,12 @@
   "dependencies": {
     "angular": "^1.4.3",
     "angular-xeditable": "0.0.1",
-    "bootstrap": "^3.3.5",
-    "http-server": "^0.8.0"
+    "bootstrap": "^3.3.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.6"
+  },
   "scripts": {
     "test": "test",
     "start": "pm2 start node_modules/http-server/bin/http-server  -- -p 6765"
